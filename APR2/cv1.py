@@ -59,3 +59,4 @@ p2 = Pes(jmeno="Baryk", vek=2, majitele=["Jana"])
 print(p1 >= p2)
 stene = p1 + p2
 print(stene.jmeno)
+
