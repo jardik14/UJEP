@@ -1,3 +1,5 @@
+rm(list = ls())
+
 x <- 2
 res <- round(sqrt(cos(x + (3/2) * pi)), digits = 3)
 print(res)
