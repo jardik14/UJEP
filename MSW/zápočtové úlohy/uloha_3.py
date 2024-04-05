@@ -66,14 +66,17 @@ def gauss_seidel(A, b, niteraci, x0):
 gauss_times = []
 gauss_seidel_times = []
 
-for i in range(1, 200, 5):
+max_size = 300
+increment = 10
+
+for i in range(1, max_size, increment):
     gauss_times_partial = []
     gauss_seidel_times_partial = []
     for _ in range(50):
         A = generate_matrix(i)
         b = generate_vector(i)
         gauss_times_partial.append(gaussian_elimination(A, b))
-        gauss_seidel_times_partial.append(gauss_seidel(A, b, 100, np.ones(len(A))))
+        gauss_seidel_times_partial.append(gauss_seidel(A, b, 20, np.ones(len(A))))
     while None in gauss_times_partial:
         gauss_times_partial.remove(None)
     gauss_times.append(np.mean(gauss_times_partial))
@@ -81,8 +84,8 @@ for i in range(1, 200, 5):
         gauss_seidel_times_partial.remove(None)
     gauss_seidel_times.append(np.mean(gauss_seidel_times_partial))
 
-plt.plot(range(len(gauss_times)), gauss_times, label="Gaussian elimination")
-plt.plot(range(len(gauss_seidel_times)), gauss_seidel_times, label="Gauss-Seidel")
+plt.plot(range(1, max_size, increment), gauss_times, label="Gaussian elimination")
+plt.plot(range(1, max_size, increment), gauss_seidel_times, label="Gauss-Seidel")
 plt.xlabel("Matrix size")
 plt.ylabel("Time")
 plt.legend()

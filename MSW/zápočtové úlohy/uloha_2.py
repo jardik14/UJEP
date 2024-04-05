@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 from scipy import interpolate
 
-def linear_interpolation(x: list, y: list):
+def linear_approx(x: list, y: list):
     xnadruhou = []
     for e in x:
         e = e**2
@@ -39,52 +39,52 @@ data = pd.read_csv("Orange Quality Data.csv")
 
 
 
-x,y = linear_interpolation(data["Size (cm)"], data["Weight (g)"])
+x,y = linear_approx(data["Size (cm)"], data["Weight (g)"])
 plt.plot(x, y, "r-")
 plt.plot(data["Size (cm)"], data["Weight (g)"], "g.")
 plt.xlabel("Size (cm)")
 plt.ylabel("Weight (g)")
-plt.legend(["Interpolation", "Data"])
+plt.legend(["Approximation", "Data"])
 plt.title("Orange Size vs. Weight")
 plt.show()
 
 
-x,y = linear_interpolation(data["HarvestTime (days)"], data["Size (cm)"])
+x,y = linear_approx(data["HarvestTime (days)"], data["Size (cm)"])
 plt.plot(x, y, "r-")
 plt.plot(data["HarvestTime (days)"], data["Size (cm)"], "g.")
 plt.xlabel("HarvestTime (days)")
 plt.ylabel("Size (cm)")
-plt.legend(["Interpolation", "Data"])
+plt.legend(["Approximation", "Data"])
 plt.title("Harvest Time vs. Size")
 plt.show()
 
 
 
-x,y = linear_interpolation(data["HarvestTime (days)"], data["Weight (g)"])
+x,y = linear_approx(data["HarvestTime (days)"], data["Weight (g)"])
 plt.plot(x, y, "r-")
 plt.plot(data["HarvestTime (days)"], data["Weight (g)"], "g.")
 plt.xlabel("HarvestTime (days)")
 plt.ylabel("Weight (g)")
-plt.legend(["Interpolation", "Data"])
+plt.legend(["Approximation", "Data"])
 plt.title("Harvest Time vs. Weight")
 plt.show()
 
 
-x,y = linear_interpolation(data["Weight (g)"], data["Brix (Sweetness)"])
+x,y = linear_approx(data["Weight (g)"], data["Brix (Sweetness)"])
 plt.plot(x, y, "r-")
 plt.plot(data["Weight (g)"], data["Brix (Sweetness)"], "g.")
 plt.xlabel("Weight (g)")
 plt.ylabel("Brix (Sweetness)")
-plt.legend(["Interpolation", "Data"])
+plt.legend(["Approximation", "Data"])
 plt.title("Weight vs. Sweetness")
 plt.show()
 
-x,y = linear_interpolation(data["Size (cm)"], data["Quality (1-5)"])
+x,y = linear_approx(data["Size (cm)"], data["Quality (1-5)"])
 plt.plot(x, y, "r-")
 plt.plot(data["Size (cm)"], data["Quality (1-5)"], "g.")
 plt.xlabel("Size (cm)")
 plt.ylabel("Quality (1-5)")
-plt.legend(["Interpolation", "Data"])
+plt.legend(["Approximation", "Data"])
 plt.title("Size vs. Quality")
 plt.show()
 
