@@ -1,3 +1,4 @@
+rm(list = ls())
 # Tabulka z HTML
 library(rvest)
 
