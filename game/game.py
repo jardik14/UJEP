@@ -1,6 +1,7 @@
 import pygame
 import random
 
+
 class Player:
     def __init__(self, pos):
         self.pos = pos
@@ -8,7 +9,6 @@ class Player:
         self.rect = self.image.get_rect()
         self.rect.size = (40, 40)
         self.rect.center = (pos.x, pos.y)
-
 
     def update(self, mouse_position):
         keys = pygame.key.get_pressed()
@@ -25,7 +25,6 @@ class Player:
         player_rotated = pygame.transform.rotate(player.image, angle - 90)
         player_rotated_rect = player_rotated.get_rect(center=player.pos)
         screen.blit(player_rotated, player_rotated_rect)
-        pygame.draw.rect(screen, "blue", player.rect)
 
     def shoot(self, mouse_position):
         keys = pygame.key.get_pressed()
@@ -40,7 +39,6 @@ class Player:
             bullets.append(Bullet(b_pos, (mouse_position - self.pos).normalize()))
 
 
-
 class Enemy:
     def __init__(self, pos):
         self.pos = pos
@@ -50,11 +48,11 @@ class Enemy:
         self.rect.center = (pos.x + 20, pos.y + 20)
         self.rect.size = (45, 45)
 
-    def update(self, screen, target, dt):
-        direction = (target - self.pos).normalize()
+    def update(self, scr, target, dt):
+        direction = (target - self.rect.center).normalize()
         self.pos += direction * enemy_speed * dt
         self.rect.center = (self.pos.x + 50, self.pos.y + 50)
-        screen.blit(self.image, self.pos)
+        scr.blit(self.image, self.pos)
 
 
 class Bullet:
@@ -66,14 +64,15 @@ class Bullet:
         self.rect.size = (10, 10)
         self.rect.center = (pos.x, pos.y)
 
-
-    def update(self, screen, dt):
+    def update(self, scr, dt):
         self.pos += self.direction * 400 * dt
         self.rect.center = (self.pos.x, self.pos.y)
         angle = self.direction.angle_to((1, 0))
         bullet_rotated = pygame.transform.rotate(self.image, angle - 90)
         bullet_rotated_rect = bullet_rotated.get_rect(center=self.pos)
-        screen.blit(bullet_rotated, bullet_rotated_rect)
+        scr.blit(bullet_rotated, bullet_rotated_rect)
+
+        # remove bullets that are off-screen
         if not (0 <= bullet.pos.x <= screen.get_width() and 0 <= bullet.pos.y <= screen.get_height()):
             self.destroy()
 
@@ -124,17 +123,12 @@ while running:
 
     # get the keys that are currently being pressed
 
-
     # player shooting with cooldown
     player.shoot(mouse_pos)
 
     # move and draw bullets
     for bullet in bullets:
         bullet.update(screen, dt)
-
-    # remove bullets that are off-screen
-    # bullets = [bullet for bullet in bullets if 0 <= bullet.pos.x <= screen.get_width()
-    #            and 0 <= bullet.pos.y <= screen.get_height()]
 
     # spawn enemies
     if len(enemies) < 5:
@@ -165,7 +159,6 @@ while running:
     font = pygame.font.Font(None, 36)
     score_text = font.render(f"Score: {score}", True, "white")
     screen.blit(score_text, (10, 10))
-
 
     # flip() the display to put your work on screen
     pygame.display.flip()
