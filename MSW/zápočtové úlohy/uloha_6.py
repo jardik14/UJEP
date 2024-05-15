@@ -12,8 +12,8 @@ x,y = pyautogui.position()
 my_seed_x = x
 my_seed_y = y
 for prctg in cores_prctg:
-    my_seed_x *= prctg
-    my_seed_y *= prctg
+    my_seed_x += prctg
+    my_seed_y -= prctg
 
 my_seed = abs(my_seed_x - my_seed_y)
 

@@ -1,7 +1,6 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
-from scipy import interpolate
 
 def linear_approx(x: list, y: list):
     xnadruhou = []

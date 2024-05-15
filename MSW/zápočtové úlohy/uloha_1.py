@@ -2,7 +2,7 @@ from functools import wraps
 import time
 import numpy as np
 import pandas as pd
-import math
+
 
 def timer(func):
     @wraps(func)
@@ -64,7 +64,7 @@ def matrix_addition_python(a, b):
 
 @timer
 def matrix_addition_numpy(a, b):
-    return a + b
+    return np.add(a, b)
 
 @timer
 def matrix_addition_pandas(a, b):
@@ -83,12 +83,6 @@ def zeroing_matrix_numpy(a):
 @timer
 def zeroing_matrix_pandas(a):
     return pd.DataFrame(a) * 0
-
-
-
-
-
-
 
 
 def main():
@@ -140,8 +134,6 @@ def main():
     zeroing_matrix_numpy(a)
     print(" Pandas:")
     zeroing_matrix_pandas(a)
-
-
 
 
 if __name__ == "__main__":

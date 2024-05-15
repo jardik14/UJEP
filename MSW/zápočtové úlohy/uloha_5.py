@@ -3,7 +3,6 @@ from scipy import optimize
 from functools import wraps
 import time
 
-
 def timer(func):
     @wraps(func)
     def wrapper(*args, **kwargs):
@@ -20,7 +19,6 @@ def bisect(f, a, b):
 @timer
 def newton(f, x0):
     return optimize.newton(f, x0)
-
 
 # funkce 1
 print("Funkce 1: x^2 - 4")
@@ -43,15 +41,15 @@ print(f"Newton: {x}, čas: {cas} ms, chyba: {abs(res - x)}")
 
 
 # funkce 2
-print("\nFunkce 2: x^3 - 4")
+print("\nFunkce 2: 1/(5^(2x-4)) - 125")
 def f2(x):
-    return np.exp(x) - 4
+    return 1/(5**(2*x-4)) - 125
 
 a0 = 0
 b0 = 4
 
 
-res = np.log(4)
+res = 1/2
 
 # bisekce
 cas, x = bisect(f2, a0, b0)
