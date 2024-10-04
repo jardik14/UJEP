@@ -160,3 +160,5 @@ cython_debug/
 
 # RStudio
 .Rhistory
+.RData
+.RDataTmp
