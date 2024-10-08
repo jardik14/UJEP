@@ -1,0 +1,15 @@
+D:\Programko\UJEP\OONV\OONV-c#\cv6_ukol\bin\Debug\net6.0\cv6_ukol.exe
+D:\Programko\UJEP\OONV\OONV-c#\cv6_ukol\bin\Debug\net6.0\cv6_ukol.deps.json
+D:\Programko\UJEP\OONV\OONV-c#\cv6_ukol\bin\Debug\net6.0\cv6_ukol.runtimeconfig.json
+D:\Programko\UJEP\OONV\OONV-c#\cv6_ukol\bin\Debug\net6.0\cv6_ukol.dll
+D:\Programko\UJEP\OONV\OONV-c#\cv6_ukol\bin\Debug\net6.0\cv6_ukol.pdb
+D:\Programko\UJEP\OONV\OONV-c#\cv6_ukol\obj\Debug\net6.0\cv6_ukol.csproj.AssemblyReference.cache
+D:\Programko\UJEP\OONV\OONV-c#\cv6_ukol\obj\Debug\net6.0\cv6_ukol.GeneratedMSBuildEditorConfig.editorconfig
+D:\Programko\UJEP\OONV\OONV-c#\cv6_ukol\obj\Debug\net6.0\cv6_ukol.AssemblyInfoInputs.cache
+D:\Programko\UJEP\OONV\OONV-c#\cv6_ukol\obj\Debug\net6.0\cv6_ukol.AssemblyInfo.cs
+D:\Programko\UJEP\OONV\OONV-c#\cv6_ukol\obj\Debug\net6.0\cv6_ukol.csproj.CoreCompileInputs.cache
+D:\Programko\UJEP\OONV\OONV-c#\cv6_ukol\obj\Debug\net6.0\cv6_ukol.dll
+D:\Programko\UJEP\OONV\OONV-c#\cv6_ukol\obj\Debug\net6.0\refint\cv6_ukol.dll
+D:\Programko\UJEP\OONV\OONV-c#\cv6_ukol\obj\Debug\net6.0\cv6_ukol.pdb
+D:\Programko\UJEP\OONV\OONV-c#\cv6_ukol\obj\Debug\net6.0\cv6_ukol.genruntimeconfig.cache
+D:\Programko\UJEP\OONV\OONV-c#\cv6_ukol\obj\Debug\net6.0\ref\cv6_ukol.dll
