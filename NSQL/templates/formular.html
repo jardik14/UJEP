@@ -1,0 +1,13 @@
+{% extends 'template.html' %}
+
+{% block content %}
+    <form action="/formular" method="post">
+        <fieldset>
+<!--            <input type="color">-->
+<!--            <input type="date">-->
+<!--            <input type="range">-->
+            <input type="text" placeholder="Napis text" required>
+        </fieldset>
+        <button type="submit">Odeslat</button>
+    </form>
+{% endblock %}

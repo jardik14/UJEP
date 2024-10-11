@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cv6_ukol", "cv6_ukol\cv6_uk
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "prednaska2", "prednaska2\prednaska2.csproj", "{D7DCEF97-7B08-4BBA-9AEC-9E34161DC22D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cviko2_builder", "cviko2_builder\cviko2_builder.csproj", "{EC41D4FE-114A-4975-AB71-2A4602E700C4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{D7DCEF97-7B08-4BBA-9AEC-9E34161DC22D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D7DCEF97-7B08-4BBA-9AEC-9E34161DC22D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D7DCEF97-7B08-4BBA-9AEC-9E34161DC22D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC41D4FE-114A-4975-AB71-2A4602E700C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC41D4FE-114A-4975-AB71-2A4602E700C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC41D4FE-114A-4975-AB71-2A4602E700C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC41D4FE-114A-4975-AB71-2A4602E700C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
