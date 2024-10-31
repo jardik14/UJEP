@@ -1,0 +1,13 @@
+id_zak;jmeno;prijmeni;adresa;id_mes;telefon
+INT;CHAR(15);CHAR(20);VARCHAR(50);INT;INT(9)
+PK AI;NN;NN;NN;NN;ZF NN
+1;Marek;Balta;Na stráni 15, Ústí nad Labem, 40001;1;123654789
+2;Josef;Hanousek;Pod svahem 24, Ústí nad Labem, 40003;1;123456987
+3;Karel;Habart;U parku 3, Teplice, 45001;2;321456789
+4;Martin;Havruška;Dlouhá 46/7, Teplice, 45004;2;321654789
+5;Ondøej;Chadar;Krátká 159/4, Dìèín, 43001;3;321654987
+6;Matouš;Kulina;Široká 16, Dìèín, 43001;3;123654987
+7;Jan;Kamský;Úzká 73, Teplice, 45002;2;321456987
+8;Adam;Krhout;Na kopeèku 2, Ústí nad Labem, 40009;1;147258369
+9;Zdenìk;Matoušek;Nábøeží 18, Dìèín, 43001;3;147258963
+10;Vojtìch;Mileda;Za hradem 61, Ústí nad Labem, 40003;1;147852369

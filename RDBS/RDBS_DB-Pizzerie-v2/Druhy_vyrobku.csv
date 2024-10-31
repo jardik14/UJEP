@@ -1,0 +1,11 @@
+id_dru;nazev
+INT;CHAR(15)
+PK AI;NN
+1;salát
+2;pizza
+3;tìstoviny
+4;kebab
+5;nealko
+6;pivo
+7;víno
+8;alko

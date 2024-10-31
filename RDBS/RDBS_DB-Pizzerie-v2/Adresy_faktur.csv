@@ -1,0 +1,6 @@
+cislo;nazev_firmy;ico;dic;adr_fakt
+INT;CHAR(30);INT(10);VARCHAR(12);VARCHAR(50)
+PK;NN;NN;NN;NN
+10006;Hoøièka a syn;123456789;CZ123456789;Tovární 15, Bystøice
+10022;Novaokna s r.o.;2147483647;CZ3456789012;Husitská 9, Krupka
+10037;Motospeed-MK;98764321;CZ98764321;Na vršku 3, Proboštov

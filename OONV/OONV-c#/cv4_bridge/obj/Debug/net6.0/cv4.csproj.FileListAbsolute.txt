@@ -1,0 +1,15 @@
+D:\Programko\UJEP\OONV\OONV-c#\cv4\bin\Debug\net6.0\cv4.exe
+D:\Programko\UJEP\OONV\OONV-c#\cv4\bin\Debug\net6.0\cv4.deps.json
+D:\Programko\UJEP\OONV\OONV-c#\cv4\bin\Debug\net6.0\cv4.runtimeconfig.json
+D:\Programko\UJEP\OONV\OONV-c#\cv4\bin\Debug\net6.0\cv4.dll
+D:\Programko\UJEP\OONV\OONV-c#\cv4\bin\Debug\net6.0\cv4.pdb
+D:\Programko\UJEP\OONV\OONV-c#\cv4\obj\Debug\net6.0\cv4.csproj.AssemblyReference.cache
+D:\Programko\UJEP\OONV\OONV-c#\cv4\obj\Debug\net6.0\cv4.GeneratedMSBuildEditorConfig.editorconfig
+D:\Programko\UJEP\OONV\OONV-c#\cv4\obj\Debug\net6.0\cv4.AssemblyInfoInputs.cache
+D:\Programko\UJEP\OONV\OONV-c#\cv4\obj\Debug\net6.0\cv4.AssemblyInfo.cs
+D:\Programko\UJEP\OONV\OONV-c#\cv4\obj\Debug\net6.0\cv4.csproj.CoreCompileInputs.cache
+D:\Programko\UJEP\OONV\OONV-c#\cv4\obj\Debug\net6.0\cv4.dll
+D:\Programko\UJEP\OONV\OONV-c#\cv4\obj\Debug\net6.0\refint\cv4.dll
+D:\Programko\UJEP\OONV\OONV-c#\cv4\obj\Debug\net6.0\cv4.pdb
+D:\Programko\UJEP\OONV\OONV-c#\cv4\obj\Debug\net6.0\cv4.genruntimeconfig.cache
+D:\Programko\UJEP\OONV\OONV-c#\cv4\obj\Debug\net6.0\ref\cv4.dll

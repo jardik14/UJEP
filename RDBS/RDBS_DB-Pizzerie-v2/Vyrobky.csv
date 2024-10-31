@@ -1,0 +1,131 @@
+id_vyr;nazev;cena;id_dru;popis
+INT;CHAR(50);DECIMAL(6,2);INT;VARCHAR(90)
+PK;UQ NN;US NN;FK NN;
+10;dóner kebab;75.00;4;maso, salát, omáèka
+11;dóner kebab balkán;85.00;4;maso, salát, omáèka, balkánskı sır
+12;dóner kebab falafel;100.00;4;maso, salát, omáèka, falafel
+13;dóner kebab halloumi;100.00;4;maso, salát, omáèka, halloumi
+14;dóner kebab hawai;85.00;4;maso, salát, omáèka, ananas
+15;dóner kebab pizza sır;85.00;4;maso, salát, omáèka, pizza sır
+16;kebab vegetariana;65.00;4;salát, omáèka, zelenina
+17;malı dóner kebab;49.00;4;maso, salát, omáèka
+18;super dóner kebab;100.00;4;maso, salát, omáèka
+20;insalata coban;60.00;1;rajèata, okurka, cibule, paprika
+21;insalata Dóner;100.00;1;zeleninovı salát, maso
+22;insalata falafel;85.00;1;zeleninovı salát, falafel
+23;insalata halloumi;100.00;1;zeleninovı salát, sır halloumi
+24;insalata mozzarela;75.00;1;rajèata, olivovı olej, bazalka, mozzarela
+30;insalata mista colorata;63.00;1;míchanı salát
+31;insalata al salmone;129.00;1;míchanı salát, rest. kousky lososa, krutony, rajèata, hoøèic. dressing
+32;insalata belucci;125.00;1;míchanı salát, gril. kuøecí prsa, pomeranè, jablka, oøechy, dressing, javorovı sirup
+33;insalata con tonno;117.00;1;míchanı salát, tuòák, cibule, vejce, rùovı dressing
+38;insalata greca;109.00;1;rajèata, paprika, okurky, cibule, olivy, kopr, balkánskı sır
+39;insalata croccante;139.00;1;míchanı salát, kuøecí nugetky obalené v cornflakes, hoøèic. dressing
+40;insalata caesar;128.00;1;ledovı salát, kuøecí prsa, èesnekovı dressing, krutony, parmazán
+41;insalata con schiacciate di patate e tagliatta;141.00;1;míchanı salát, brambor. placièky, plátky vepøové panenky, hoøèic. dressing
+50;focaccia;49.00;2;pizza chléb s rozmarınem a olivovım olejem
+51;trappola;145.00;2;rajèata, mozzarella, kuøecí maso, slanina, kukuøice, èesnek, brokolice
+52;margherita;98.00;2;rajèata, mozzarella, bazalka
+53;capricciosa;119.00;2;rajèata, mozzarella, šunka, ampiony, bazalka
+54;calzone - plnìná;122.00;2;rajèata, mozzarella, šunka, ampiony, bazalka
+55;loci;149.00;2;rajèata, mozzarella, slanina, vepøová panenka, èesnek, oregáno, brokolice, paprika
+56;carpaccio;155.00;2;rajèata, plátky svíèkové, smetana, parmazán, rozmarın, mozzarella
+57;frutti di mare;149.00;2;rajèata, mozzarella, moøské plody
+58;quattro formaggi;157.00;2;smetana, mozzarella, gorgonzola, parmazán, ricotta
+59;quattro stagioni;123.00;2;1/4 Marinara, 1/4 Margherita, 1/4 Capricciosa, 1/4 Frutti di mare
+60;hawai;127.00;2;rajèata, mozzarella, šunka, ananas
+61;salamino;123.00;2;rajèata, mozzarella, salám
+62;messicana;131.00;2;rajèata, mozzarella, salám, cibule, vejce, pikantní olivovı olej
+63;pancetta;119.00;2;rajèata, mozzarella, ampiony, slanina
+64;fausto;115.00;2;rajèata, mozzarella, ampiony, olivy
+65;bolzano;149.00;2;smetana, mozzarella, kuøecí maso, gorgonzola, chøest, rozmarın, èesnek
+66;tonno;121.00;2;rajèata, mozzarella, tuòák, cibule
+67;funghi;105.00;2;rajèata, mozzarella, ampiony, vejce
+68;napolitana;125.00;2;rajèata, mozzarella, italská klobása, fazole, sušená rajèata, parmazán
+69;rustica;159.00;2;rajèata, kuøecí maso, mozzarella, gorgonzola, parmazán
+70;emiliano;129.00;2;smetana, mozzarella, šunka, tuòák, cibule
+71;prosciutto e olive;127.00;2;rajèata, mozzarella, šunka, olivy
+72;bolognese;134.00;2;rajèata, mozzarella, hovìzí a vepøové maso, cibule
+73;vegetariana;125.00;2;rajèata, mozzarella, listovı špenát, kukuøice, chøest
+74;prosciutto crudo;149.00;2;rajèata, mozzarella, parmská šunka, bazalka
+75;con salmone e spinaci fresco;151.00;2;smetana, mozzarella, losos, èerstvı špenát, citron
+76;bradipo;127.00;2;rajèata, mozzarella, brambory, slanina, vejce, rozmarın
+77;peperoni e salsiccia;134.00;2;rajèata, mozzarella, pikantní klobása, feferonky - beraní rohy, cibule, kukuøice
+78;pollo e spinaci;149.00;2;smetana, kuøecí maso, èervené fazole, listovı špenát, kukuøice
+79;brava;139.00;2;rajèata, mozzarella, slanina, špenát, vejce, parmazán, oregáno
+80;adane;115.00;2;rajèata, pizza sır, tureckı sucuk, feta sır, cibule, ampiony
+81;al broccoli;114.00;2;salza, smetana, sır, brokolice, èesnek
+82;al salmone;158.00;2;rajèata, mozzarela, uzenı losos, krevetky
+83;al tonno;125.00;2;rajèata, mozzarela, tuòák, cibule
+84;con salsiccia;169.00;2;salza, papriková klobása, cibule, sır
+85;emilia;145.00;2;smetana, cibule, tuòák, sır, olivy
+86;lago di garda;136.00;2;salza, šunka, sır, kukuøice
+87;spaghetti pollo pikant;79.00;3;salza, chilli, sır, kozí rohy
+88;spaghetti pollo spinaci;95.00;3;smetana, èesnek, špenát
+89;spaghetti al´aglio e olio;89.00;3;olivovı olej, èesnek, parmazán
+90;spaghetti alla carbonara;119.00;3;slanina, smetana, vejce, cibule, parmazán
+91;spaghetti con filetto e funghi;153.00;3;smetana, hovìzí svíèková, høiby, bílé víno, parmazán
+92;spaghetti all´amatriciana;121.00;3;slanina, cibule, rajèata, chilli, parmazán, bílé víno
+93;spaghetti bolognese;97.00;3;'
+94;fusilli saporiti;139.00;3;kuøecí maso, brokolice, smetana, gorgonzola, parmazán
+95;fusilli spinaci e pollo;139.00;3;kuøecí maso, listovı špenát, smetana, parmazán, èesnek
+96;fusilli boscaiola;121.00;3;ampiony, šunka, hrášek, smetana, parmazán
+97;fusilli trappola;139.00;3;rajèata, hovìzí svíèková, rozmarın, chilli, parmazán, smetana
+98;fusilli al pomodoro fresco;128.00;3;èerstvá rajèata, bazalka, mozzarella, parmazán, èesnek
+99;penne al curry;135.00;3;kuøecí maso, hrášek, ampiony, smetana, kari, parmazán
+100;penne alla ricotta - zapeèeno;138.00;3;kuøecí maso, ricotta, smetana, mozzarella
+101;penne all´arabbiata;98.00;3;rajèata, cibule, èesnek, chilli, parmazán, èesnek
+103;penne con salsiccia;129.00;3;èerstvá rajèata, italská klobása, cibule, paprika, parmazán
+105;tagliatelle al salmone;145.00;3;losos, smetana, bílé víno, parmazán, èesnek
+106;tagliatelle alla bolognese;127.00;3;hovìzí a vepøové mleté maso, rajèata, parmazán, èesnek
+109;gnocchi piccante al forno;128.00;3;zapeèené bramborové noky, vepøová panenka, kukuøice, paprika, olivy, chilli
+111;gnocchi con funghi e rucola;119.00;3;bramborové noky, høiby, rukola, smetana, parmazán
+112;gnocchi quattro formaggi;135.00;3;bramborové noky, parmazán, gorgonzola, mozzarella, ricotta, smetana
+113;gnocchi con spinaci;119.00;3;bramborové noky, listovı špenát, smetana, èesnek, parmazán
+114;gnocchi al forno con prosciutto crudo;125.00;3;zapeèené bramborové noky, parmská šunka, rajèata, mozzarella, ampiony
+115;patate al forno;99.00;3;brambory, smetana, parmská šunka, parmazán
+116;risi bisi;135.00;3;kuøecí maso, slanina, hrášek, cibule, parmazán
+117;risotto con spinaci e mozzarella;127.00;3;špenát, mozzarella, parmazán, cibule, smetana
+118;risotto con funghi porcini;139.00;3;høiby, máslo, parmazán, cibule, bílé víno
+119;fusilli bolognese;127.00;3;mleté maso, bazalka
+120;fusilli pollo spinaci;119.00;3;smetana, èesnek, špenát
+121;fusilli pollo pikant;132.00;3;'
+130;lahmacun;60.00;2;turecká pizza
+131;nuova;125.00;2;rajèata, mozzarela, salám, špenát, cibule, vejce, smetana, èesnek
+132;piccante;135.00;2;rajèata, mozzarela, slanina, salám, chilli, kozí rohy
+133;pollo al curry;142.00;2;smetana, mozzarela, ampiony, hrášek, kuøecí maso, kari
+134;pollo gyros con panna;205.00;2;smetana, èesnek, kuøecí gyros, sır
+135;pollo gyros pikant;210.00;2;salza, chilli, kuøecí gyros, sır, kozí rohy
+136;pollo spinaci;122.00;2;smetana, kuøecí smìs s èesnekem a špenátem
+137;pomodori funghi;119.00;2;salza, sır, rajèata, ampiony
+138;quattro salami;149.00;2;rajèata, mozzarela, salám pikant, slanina, šunka, klobása
+139;reggina;115.00;2;rajèata, pizza sır, šunka, salám, cibule
+140;roma;134.00;2;rajèata, mozzarela, šunka, ampiony, olivy, kozí rohy, vejce
+141;sardine;100.00;2;rajèata, pizza sır, sardinky
+142;siciliana;137.00;2;rajèata, mozzarela, anèovièky, cibule, kapary
+143;tomino;135.00;2;rajèata, mozzarela, šunka, ampiony, brokolice, kuøecí maso
+144;tre salami;96.00;2;salza, sır, šunka, paprikovı salám, slanina
+146;tutti all aglio;184.00;2;èesnek, salza, sır, dušená šunka, slanina
+147;tutti all pollo;179.00;2;smetana, kuøecí pikantní smìs, sır
+148;tutti pizza;154.00;2;smetana, hermelín, niva, paprika, sır
+149;tutti sicilliana;149.00;2;smetana, slanina, vejce, sır
+200;Cappy pomeranè;24.00;5;pomeranèovı juice 100%, 330ml
+201;Cappy jablko;24.00;5;jableènı juice 100%, 330ml
+202;Cappy multivitamín;24.00;5;multivitamín 50%, 330ml
+203;Red Bull;35.00;5;Energy Drink osvìí tìlo i mysl, zvıší vıkon, soustøedìní, bdìlost a rychlost reakce, 250m
+204;Semtex;33.00;5;Energy Drink s obsahem kofeinu, taurinu, s pøídavkem vitamínù, 250ml
+205;Fanta;21.00;5;nápoj s pomeranèovou pøíchutí, 200ml
+206;Sprite;23.00;5;svìí, èistá chu, která skuteènì hasí ízeò, 200ml
+207;Coca cola;25.00;5;hnìdı sladkı nápoj s obsahem kofeinu a bezkokainového vıtaku koky, 200ml
+208;Aquila jemnì perlivá;18.00;5;voda z hlubin skal sopeèného pùvodu u Karlovıch Varù, obsahuje minerály, 330ml
+209;voda;15.00;5;pitná voda z kohoutku, 500ml
+300;Krušovice Leák 12;32.00;6;svìtlı leák, alk. 5,0 % obj., 500ml
+301;Krušovice Èerné;30.00;6;tmavé pivo, alk. 3,8 % obj., 500ml
+302;Krušovice Mušketır 11;31.00;6;vıèepní tmavé pivo, alk. 4,5 % obj., 500ml
+303;Gambrinus Originál 10;28.00;6;vıèepní svìtlé pivo, alk. 4,3 % obj., 500ml
+304;Gambrinus Patron 12;32.00;6;svìtlı leák, alk. 5,2 % obj., 500ml
+305;Pilsner Urquell;35.00;6;svìtlı leák, alk. 4,4 % obj., 500ml
+350;Müller Thurgau;185.00;7;jakostní kabinetní víno s pøívlastkem, polosuché, 750ml
+351;Chardonnay;270.00;7;pozdní sbìr, suché, 750ml
+360;Modrı Portugal;109.00;7;Èeské zemské víno, suché, 750ml
+361;Svatovavøinecké;179.00;7;Èeské zemské víno, suché, 750ml

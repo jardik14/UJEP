@@ -10,6 +10,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "prednaska2", "prednaska2\pr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cviko2_builder", "cviko2_builder\cviko2_builder.csproj", "{EC41D4FE-114A-4975-AB71-2A4602E700C4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cv4_bridge", "cv4_bridge\cv4_bridge.csproj", "{94B3134F-C066-41EF-906D-FD246204ADD0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cv4_decorator", "cv4_decorator\cv4_decorator.csproj", "{CC4CE104-03DF-46B4-89E2-9223FEFF3071}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +40,13 @@ Global
 		{EC41D4FE-114A-4975-AB71-2A4602E700C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC41D4FE-114A-4975-AB71-2A4602E700C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC41D4FE-114A-4975-AB71-2A4602E700C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94B3134F-C066-41EF-906D-FD246204ADD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94B3134F-C066-41EF-906D-FD246204ADD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94B3134F-C066-41EF-906D-FD246204ADD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94B3134F-C066-41EF-906D-FD246204ADD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC4CE104-03DF-46B4-89E2-9223FEFF3071}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC4CE104-03DF-46B4-89E2-9223FEFF3071}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC4CE104-03DF-46B4-89E2-9223FEFF3071}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC4CE104-03DF-46B4-89E2-9223FEFF3071}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

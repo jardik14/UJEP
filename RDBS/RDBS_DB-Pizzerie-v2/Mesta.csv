@@ -1,0 +1,12 @@
+id_mes;nazev
+INT;CHAR(30)
+PK AI;NN
+1;Ústí nad Labem
+2;Teplice
+3;Dìèín
+4;Most
+5;Bílina
+6;Litomìøice
+7;Úštìk
+8;Èeská Lípa
+9;Lovosice

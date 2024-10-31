@@ -1,0 +1,11 @@
+Zkratky Integritních omezení datových typů v DB Pizzerie2 z MariaDB:
+
+PK = Primary key
+AI = Auto_increment (automatické číslování)
+NN = Not null
+ZF = Zerofill (zobrazení nul před číslem)
+FK = Foreign key
+US = Unsigned (kladné číslo bez znaménka)
+UQ = Unique (jedinečné hodnoty sloupce)
+def1 = Default 1 (defaultně nastaveno na hodnotu 1)
+
