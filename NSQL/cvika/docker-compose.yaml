@@ -12,19 +12,20 @@ services:
 
   redis:
     image: redislabs/redismod
-    container_name: redis
+    container_name: redis_recepty
     ports:
       - "6379:6379"
 
   flask:
     build: .
-    container_name: flask
+    container_name: flask_recepty
     environment:
       - FLASK_ENV=development
       - POSTGRES_DB=your_db
       - POSTGRES_USER=your_user
       - POSTGRES_PASSWORD=your_pass
       - POSTGRES_HOST=db
+      - REDIS_HOST=redis
     ports:
       - "5000:5000"
     volumes:
