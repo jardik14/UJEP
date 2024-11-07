@@ -1,3 +1,5 @@
+START TRANSACTION;
+
 -- Table: Animal
 CREATE TABLE Animal (
     animal_id SERIAL PRIMARY KEY,
@@ -17,8 +19,14 @@ CREATE TABLE Pavilion (
 CREATE TABLE Employee (
     employee_id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
-    surname VARCHAR(255) NOT NULL
+    surname VARCHAR(255) NOT NULL,
+    manager_id INT,
+    pavilion_id INT,  -- Foreign key to Pavilion table
+    role_name VARCHAR(255),  -- Attribute for the role name
+    FOREIGN KEY (manager_id) REFERENCES Employee(employee_id),
+    FOREIGN KEY (pavilion_id) REFERENCES Pavilion(pavilion_id)
 );
+
 
 -- Table: Contract
 CREATE TABLE Contract (
@@ -65,6 +73,16 @@ CREATE TABLE visitor_feedback (
     FOREIGN KEY (visitor_id) REFERENCES Visitor(visitor_id)
 );
 
+CREATE TABLE EmployeeAuditLog (
+    log_id SERIAL PRIMARY KEY,
+    employee_id INT NOT NULL,
+    old_name VARCHAR(255),
+    old_surname VARCHAR(255),
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_by VARCHAR(255) NOT NULL
+);
+
+
 INSERT INTO Pavilion (name, est_date) VALUES
 ('Savannah', '2005-03-15'),
 ('Rainforest', '1998-07-22'),
@@ -95,29 +113,51 @@ INSERT INTO Animal (name, age, species, pavilion_id) VALUES
 ('Ruby', 5, 'Gorilla', 2),
 ('Jake', 3, 'Hyena', 1);
 
-INSERT INTO Employee (name, surname) VALUES
-('John', 'Doe'),
-('Jane', 'Smith'),
-('Robert', 'Brown'),
-('Emily', 'Davis'),
-('Michael', 'Johnson'),
-('Sarah', 'Miller'),
-('David', 'Wilson'),
-('Laura', 'Moore'),
-('James', 'Taylor'),
-('Sophia', 'Anderson');
+INSERT INTO Employee (name, surname, manager_id, pavilion_id, role_name) VALUES
+('Albert', 'Davies', NULL, NULL, 'Director'),
+('John', 'Rodriguez', 1, 1, 'Zookeeper'),
+('Linda', 'Mercer', 1, 5, 'Veterinarian'),
+('Jamie', 'Hall', 2, 2, 'Zookeeper'),
+('Margaret', 'Owens', 3, NULL, 'Researcher'),
+('Julie', 'Munoz', 3, 3, 'Zookeeper'),
+('Randy', 'Miller', 8, NULL, 'Maintenance'),
+('Adam', 'Kirk', 3, 3, 'Assistant'),
+('Anthony', 'Duran', 2, 2, 'Zookeeper'),
+('Krista', 'Garrett', 8, NULL, 'Cashier'),
+('Kenneth', 'Alvarado', 10, 2, 'Tour Guide'),
+('Raymond', 'Chang', 2, 2, 'Zookeeper'),
+('Linda', 'Miller', 3, 5, 'Researcher'),
+('Jason', 'Cohen', 3, 3, 'Zookeeper'),
+('Angelica', 'Richards', 11, NULL, 'Cashier'),
+('Jodi', 'Anderson', 15, 3, 'Veterinarian'),
+('Thomas', 'Smith', 16, 2, 'Zookeeper'),
+('Michelle', 'Chaney', 11, 1, 'Zookeeper'),
+('Jason', 'Walton', 8, NULL, 'Maintenance'),
+('Heidi', 'Ortega', 18, 3, 'Veterinarian');
+
 
 INSERT INTO Contract (employee_id, salary, contract_start, contract_end) VALUES
-(1, 50000, '2023-01-01', '2024-01-01'),
-(2, 45000, '2022-05-15', '2023-05-15'),
-(3, 60000, '2023-03-01', '2024-03-01'),
-(4, 52000, '2021-07-10', '2022-07-10'),
-(5, 47000, '2023-02-20', '2024-02-20'),
-(6, 48000, '2022-09-01', '2023-09-01'),
-(7, 53000, '2023-04-15', '2024-04-15'),
-(8, 46000, '2022-11-30', '2023-11-30'),
-(9, 55000, '2023-06-01', '2024-06-01'),
-(10, 49000, '2022-12-15', '2023-12-15');
+(1, 50000, '2021-01-01', '2023-01-01'),
+(2, 55000, '2021-05-15', '2024-05-15'),
+(3, 60000, '2022-03-20', '2025-03-20'),
+(4, 48000, '2020-11-10', '2023-11-10'),
+(5, 72000, '2023-01-05', '2024-01-05'),
+(6, 51000, '2022-08-01', '2023-08-01'),
+(7, 53000, '2023-02-14', '2026-02-14'),
+(8, 59000, '2019-04-22', '2022-04-22'),
+(9, 62000, '2020-10-30', '2023-10-30'),
+(10, 67000, '2022-07-15', '2025-07-15'),
+(11, 50000, '2021-06-01', '2024-06-01'),
+(12, 55000, '2020-09-09', '2023-09-09'),
+(13, 72000, '2022-12-01', '2025-12-01'),
+(14, 49000, '2018-02-18', '2021-02-18'),
+(15, 68000, '2023-01-20', '2026-01-20'),
+(16, 53000, '2019-05-15', '2022-05-15'),
+(17, 61000, '2021-03-03', '2024-03-03'),
+(18, 55000, '2019-07-01', '2022-07-01'),
+(19, 50000, '2022-10-10', '2023-10-10'),
+(20, 62000, '2020-06-25', '2023-06-25'),
+(1, 57000, '2023-01-02', '2026-09-01');
 
 INSERT INTO Feeding (date, food, animal_id, employee_id) VALUES
 ('2024-09-01', 'Meat', 1, 1),
@@ -284,3 +324,5 @@ INSERT INTO visitor_feedback (visitor_id, feedback_date, comments, rating) VALUE
 (18, '2023-11-10', 'Our family enjoyed the day, but it would help to have more maps available.', 1),
 (19, '2024-06-28', 'I appreciated the conservation efforts showcased throughout the zoo.', 2),
 (20, '2024-02-11', 'The zoo was wonderful; I would recommend visiting during the morning for fewer crowds.', 3);
+
+COMMIT;

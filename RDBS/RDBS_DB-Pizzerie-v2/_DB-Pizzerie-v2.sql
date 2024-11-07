@@ -1,23 +1,23 @@
 START TRANSACTION;
-
 --
--- Databáze: Pizzerie-v2
+-- --
+-- -- Databáze: Pizzerie-v2
+-- --
 --
-
-CREATE DATABASE IF NOT EXISTS Pizzerie2 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_czech_ci;
-
-USE Pizzerie2;
-
--- --------------------------------------------------------
-
+-- CREATE DATABASE IF NOT EXISTS Pizzerie2 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_czech_ci;
 --
--- Struktura tabulky druhy_vyrobku
+-- USE Pizzerie2;
 --
+-- -- --------------------------------------------------------
+--
+-- --
+-- -- Struktura tabulky druhy_vyrobku
+-- --
 
 CREATE TABLE druhy_vyrobku (
-  id_dru int PRIMARY KEY AUTO_INCREMENT,
-  nazev char(15) NOT NULL
-) ENGINE=InnoDB;
+    id_dru SERIAL PRIMARY KEY,
+    nazev CHAR(15) NOT NULL
+) WITH (OIDS=FALSE);
 
 --
 -- Vypisuji data pro tabulku druhy_vyrobku
@@ -37,11 +37,12 @@ INSERT INTO druhy_vyrobku (id_dru, nazev) VALUES
 --
 
 CREATE TABLE pozice (
-  id_poz int(11) PRIMARY KEY AUTO_INCREMENT,
-  nazev char(20) NOT NULL,
-  plat mediumint(6) UNSIGNED NOT NULL,
-  id_poz_nad INT
-) ENGINE=InnoDB;
+  id_poz SERIAL PRIMARY KEY,
+  nazev CHAR(20) NOT NULL,
+  plat INTEGER NOT NULL CHECK (plat >= 0),
+  id_poz_nad INTEGER
+);
+
 
 ALTER TABLE Pozice ADD CONSTRAINT fk_nadrizeny FOREIGN KEY (id_poz_nad) REFERENCES pozice(id_poz);
 
@@ -67,7 +68,7 @@ INSERT INTO Pozice (id_poz, nazev, plat, id_poz_nad) VALUES
 --
 
 CREATE TABLE Mesta (
-    id_mes INT PRIMARY KEY AUTO_INCREMENT,
+    id_mes SERIAL PRIMARY KEY,
     nazev CHAR(30) NOT NULL
 );
 
@@ -93,14 +94,15 @@ INSERT INTO Mesta (id_mes, nazev) VALUES
 --
 
 CREATE TABLE zakaznici (
-  id_zak int(11) PRIMARY KEY AUTO_INCREMENT,
-  jmeno char(15) NOT NULL,
-  prijmeni char(20) NOT NULL,
-  adresa varchar(50) NOT NULL,
-  id_mes INT NOT NULL,
-  telefon int(9) UNSIGNED ZEROFILL NOT NULL,
-  CONSTRAINT fk_mesto FOREIGN KEY (id_mes) REFERENCES mesta (id_mes)
-) ENGINE=InnoDB;
+  id_zak SERIAL PRIMARY KEY,
+  jmeno CHAR(15) NOT NULL,
+  prijmeni CHAR(20) NOT NULL,
+  adresa VARCHAR(50) NOT NULL,
+  id_mes INTEGER NOT NULL,
+  telefon CHAR(9) NOT NULL,
+  CONSTRAINT fk_mesto FOREIGN KEY (id_mes) REFERENCES mesta(id_mes)
+);
+
 
 --
 -- Vypisuji data pro tabulku zakaznici
@@ -125,18 +127,19 @@ INSERT INTO zakaznici (id_zak, jmeno, prijmeni, adresa, id_mes, telefon) VALUES
 --
 
 CREATE TABLE zamestnanci (
-  id_zam int(11) PRIMARY KEY,
-  jmeno char(15) NOT NULL,
-  prijmeni char(20) NOT NULL,
-  dat_nas date NOT NULL,
-  adresa varchar(50) NOT NULL,
-  telefon int(9) UNSIGNED ZEROFILL NOT NULL,
-  mail varchar(40),
-  dat_nar date NOT NULL,
-  id_poz int(11) NOT NULL,
-  odmena mediumint(6) UNSIGNED NOT NULL,
-  CONSTRAINT fk_pozice FOREIGN KEY (id_poz) REFERENCES pozice (id_poz)
-) ENGINE=InnoDB;
+  id_zam INTEGER PRIMARY KEY,
+  jmeno CHAR(15) NOT NULL,
+  prijmeni CHAR(20) NOT NULL,
+  dat_nas DATE NOT NULL,
+  adresa VARCHAR(50) NOT NULL,
+  telefon CHAR(9) NOT NULL,
+  mail VARCHAR(40),
+  dat_nar DATE NOT NULL,
+  id_poz INTEGER NOT NULL,
+  odmena INTEGER NOT NULL,
+  CONSTRAINT fk_pozice FOREIGN KEY (id_poz) REFERENCES pozice(id_poz)
+);
+
 
 --
 -- Vypisuji data pro tabulku zamestnanci
@@ -161,19 +164,20 @@ INSERT INTO zamestnanci (id_zam, jmeno, prijmeni, dat_nas, adresa, telefon, mail
 --
 
 CREATE TABLE objednavky (
-  cislo int(11) PRIMARY KEY AUTO_INCREMENT,
-  dat_pri datetime NOT NULL,
-  zam_pri int(11) NOT NULL,
-  id_zak int(11) NOT NULL,
-  zam_zpr int(11),
-  dat_exp datetime,
-  zam_exp int(11),
-  adr_dor varchar(50),
-  CONSTRAINT fk_zam_pri FOREIGN KEY (zam_pri) REFERENCES zamestnanci (id_zam),
-  CONSTRAINT fk_zakaznici FOREIGN KEY (id_zak) REFERENCES zakaznici (id_zak),
-  CONSTRAINT fk_zam_zpr FOREIGN KEY (zam_zpr) REFERENCES zamestnanci (id_zam),
-  CONSTRAINT fk_zam_exp FOREIGN KEY (zam_exp) REFERENCES zamestnanci (id_zam)
-) ENGINE=InnoDB;
+  cislo SERIAL PRIMARY KEY,
+  dat_pri TIMESTAMP NOT NULL,
+  zam_pri INTEGER NOT NULL,
+  id_zak BIGINT NOT NULL,
+  zam_zpr INTEGER,
+  dat_exp TIMESTAMP,
+  zam_exp INTEGER,
+  adr_dor VARCHAR(50),
+  CONSTRAINT fk_zam_pri FOREIGN KEY (zam_pri) REFERENCES zamestnanci(id_zam),
+  CONSTRAINT fk_zakaznici FOREIGN KEY (id_zak) REFERENCES zakaznici(id_zak),
+  CONSTRAINT fk_zam_zpr FOREIGN KEY (zam_zpr) REFERENCES zamestnanci(id_zam),
+  CONSTRAINT fk_zam_exp FOREIGN KEY (zam_exp) REFERENCES zamestnanci(id_zam)
+);
+
 
 --
 -- Vypisuji data pro tabulku objednavky
@@ -237,14 +241,15 @@ INSERT INTO objednavky (cislo, dat_pri, zam_pri, id_zak, zam_zpr, dat_exp, zam_e
 -- Struktura tabulky adresy_faktur
 --
 
-CREATE OR REPLACE TABLE Adresy_faktur(
-    cislo INT PRIMARY KEY,
+CREATE TABLE Adresy_faktur (
+    cislo BIGINT PRIMARY KEY,
     nazev_firmy CHAR(30) NOT NULL,
-    ico INT NOT NULL,
+    ico BIGINT NOT NULL,
     dic VARCHAR(12) NOT NULL,
     adr_fakt VARCHAR(50) NOT NULL,
     FOREIGN KEY (cislo) REFERENCES objednavky(cislo)
 );
+
 
 --
 -- Vypisuji data pro adresy_faktur
@@ -262,13 +267,14 @@ INSERT INTO adresy_faktur (cislo, nazev_firmy, ico, dic, adr_fakt) VALUES
 --
 
 CREATE TABLE vyrobky (
-  id_vyr int(11) PRIMARY KEY,
-  nazev char(50) UNIQUE NOT NULL,
-  cena decimal(6,2) NOT NULL,
-  id_dru int(11) NOT NULL,
-  popis varchar(90),
-  CONSTRAINT fk_druh FOREIGN KEY (id_dru) REFERENCES druhy_vyrobku (id_dru)
-) ENGINE=InnoDB;
+    id_vyr BIGINT PRIMARY KEY,
+    nazev CHAR(50) UNIQUE NOT NULL,
+    cena DECIMAL(6, 2) NOT NULL,
+    id_dru INTEGER NOT NULL,
+    popis VARCHAR(100),
+    FOREIGN KEY (id_dru) REFERENCES druhy_vyrobku(id_dru)
+);
+
 
 --
 -- Vypisuji data pro tabulku vyrobky
@@ -340,7 +346,7 @@ INSERT INTO vyrobky (id_vyr, nazev, cena, id_dru, popis) VALUES
 (90, 'spaghetti alla carbonara', '119.00', 3, 'slanina, smetana, vejce, cibule, parmazán'),
 (91, 'spaghetti con filetto e funghi', '153.00', 3, 'smetana, hovězí svíčková, hřiby, bílé víno, parmazán'),
 (92, 'spaghetti all´amatriciana', '121.00', 3, 'slanina, cibule, rajčata, chilli, parmazán, bílé víno'),
-(93, 'spaghetti bolognese', '97.00', 3, '\''),
+(93, 'spaghetti bolognese', '97.00', 3, '\'),
 (94, 'fusilli saporiti', '139.00', 3, 'kuřecí maso, brokolice, smetana, gorgonzola, parmazán'),
 (95, 'fusilli spinaci e pollo', '139.00', 3, 'kuřecí maso, listový špenát, smetana, parmazán, česnek'),
 (96, 'fusilli boscaiola', '121.00', 3, 'žampiony, šunka, hrášek, smetana, parmazán'),
@@ -363,7 +369,7 @@ INSERT INTO vyrobky (id_vyr, nazev, cena, id_dru, popis) VALUES
 (118, 'risotto con funghi porcini', '139.00', 3, 'hřiby, máslo, parmazán, cibule, bílé víno'),
 (119, 'fusilli bolognese', '127.00', 3, 'mleté maso, bazalka'),
 (120, 'fusilli pollo spinaci', '119.00', 3, 'smetana, česnek, špenát'),
-(121, 'fusilli pollo pikant', '132.00', 3, '\''),
+(121, 'fusilli pollo pikant', '132.00', 3, '\'),
 (130, 'lahmacun', '60.00', 2, 'turecká pizza'),
 (131, 'nuova', '125.00', 2, 'rajčata, mozzarela, salám, špenát, cibule, vejce, smetana, česnek'),
 (132, 'piccante', '135.00', 2, 'rajčata, mozzarela, slanina, salám, chilli, kozí rohy'),
@@ -401,12 +407,13 @@ INSERT INTO vyrobky (id_vyr, nazev, cena, id_dru, popis) VALUES
 --
 
 CREATE TABLE obj_vyr (
-  cislo int(11) NOT NULL,
-  id_vyr int(11) NOT NULL,
-  kusy tinyint(4) DEFAULT 1,
-  CONSTRAINT fk_objednavky FOREIGN KEY (cislo) REFERENCES objednavky (cislo) ON DELETE CASCADE,
-  CONSTRAINT fk_vyrobky FOREIGN KEY (id_vyr) REFERENCES vyrobky (id_vyr)
-) ENGINE=InnoDB;
+    cislo BIGINT NOT NULL,
+    id_vyr BIGINT NOT NULL,
+    kusy SMALLINT DEFAULT 1,
+    FOREIGN KEY (cislo) REFERENCES objednavky(cislo) ON DELETE CASCADE,
+    FOREIGN KEY (id_vyr) REFERENCES vyrobky(id_vyr)
+);
+
 
 --
 -- Vypisuji data pro tabulku obj_vyr
