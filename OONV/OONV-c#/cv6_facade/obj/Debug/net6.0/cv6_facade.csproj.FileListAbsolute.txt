@@ -1,0 +1,15 @@
+D:\Programko\UJEP\OONV\OONV-c#\cv6_facade\bin\Debug\net6.0\cv6_facade.exe
+D:\Programko\UJEP\OONV\OONV-c#\cv6_facade\bin\Debug\net6.0\cv6_facade.deps.json
+D:\Programko\UJEP\OONV\OONV-c#\cv6_facade\bin\Debug\net6.0\cv6_facade.runtimeconfig.json
+D:\Programko\UJEP\OONV\OONV-c#\cv6_facade\bin\Debug\net6.0\cv6_facade.dll
+D:\Programko\UJEP\OONV\OONV-c#\cv6_facade\bin\Debug\net6.0\cv6_facade.pdb
+D:\Programko\UJEP\OONV\OONV-c#\cv6_facade\obj\Debug\net6.0\cv6_facade.csproj.AssemblyReference.cache
+D:\Programko\UJEP\OONV\OONV-c#\cv6_facade\obj\Debug\net6.0\cv6_facade.GeneratedMSBuildEditorConfig.editorconfig
+D:\Programko\UJEP\OONV\OONV-c#\cv6_facade\obj\Debug\net6.0\cv6_facade.AssemblyInfoInputs.cache
+D:\Programko\UJEP\OONV\OONV-c#\cv6_facade\obj\Debug\net6.0\cv6_facade.AssemblyInfo.cs
+D:\Programko\UJEP\OONV\OONV-c#\cv6_facade\obj\Debug\net6.0\cv6_facade.csproj.CoreCompileInputs.cache
+D:\Programko\UJEP\OONV\OONV-c#\cv6_facade\obj\Debug\net6.0\cv6_facade.dll
+D:\Programko\UJEP\OONV\OONV-c#\cv6_facade\obj\Debug\net6.0\refint\cv6_facade.dll
+D:\Programko\UJEP\OONV\OONV-c#\cv6_facade\obj\Debug\net6.0\cv6_facade.pdb
+D:\Programko\UJEP\OONV\OONV-c#\cv6_facade\obj\Debug\net6.0\cv6_facade.genruntimeconfig.cache
+D:\Programko\UJEP\OONV\OONV-c#\cv6_facade\obj\Debug\net6.0\ref\cv6_facade.dll

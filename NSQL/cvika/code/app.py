@@ -14,7 +14,8 @@ def get_postgres_connection():
         dbname="your_db",
         user="your_user",
         password="your_pass",
-        host="postgres"
+        host="db",
+        port="5432"
     )
 
 def cache_page(key, ttl=60):

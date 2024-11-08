@@ -1,0 +1,15 @@
+D:\Programko\UJEP\OONV\OONV-c#\cv6_composite\bin\Debug\net6.0\cv6_composite.exe
+D:\Programko\UJEP\OONV\OONV-c#\cv6_composite\bin\Debug\net6.0\cv6_composite.deps.json
+D:\Programko\UJEP\OONV\OONV-c#\cv6_composite\bin\Debug\net6.0\cv6_composite.runtimeconfig.json
+D:\Programko\UJEP\OONV\OONV-c#\cv6_composite\bin\Debug\net6.0\cv6_composite.dll
+D:\Programko\UJEP\OONV\OONV-c#\cv6_composite\bin\Debug\net6.0\cv6_composite.pdb
+D:\Programko\UJEP\OONV\OONV-c#\cv6_composite\obj\Debug\net6.0\cv6_composite.csproj.AssemblyReference.cache
+D:\Programko\UJEP\OONV\OONV-c#\cv6_composite\obj\Debug\net6.0\cv6_composite.GeneratedMSBuildEditorConfig.editorconfig
+D:\Programko\UJEP\OONV\OONV-c#\cv6_composite\obj\Debug\net6.0\cv6_composite.AssemblyInfoInputs.cache
+D:\Programko\UJEP\OONV\OONV-c#\cv6_composite\obj\Debug\net6.0\cv6_composite.AssemblyInfo.cs
+D:\Programko\UJEP\OONV\OONV-c#\cv6_composite\obj\Debug\net6.0\cv6_composite.csproj.CoreCompileInputs.cache
+D:\Programko\UJEP\OONV\OONV-c#\cv6_composite\obj\Debug\net6.0\cv6_composite.dll
+D:\Programko\UJEP\OONV\OONV-c#\cv6_composite\obj\Debug\net6.0\refint\cv6_composite.dll
+D:\Programko\UJEP\OONV\OONV-c#\cv6_composite\obj\Debug\net6.0\cv6_composite.pdb
+D:\Programko\UJEP\OONV\OONV-c#\cv6_composite\obj\Debug\net6.0\cv6_composite.genruntimeconfig.cache
+D:\Programko\UJEP\OONV\OONV-c#\cv6_composite\obj\Debug\net6.0\ref\cv6_composite.dll

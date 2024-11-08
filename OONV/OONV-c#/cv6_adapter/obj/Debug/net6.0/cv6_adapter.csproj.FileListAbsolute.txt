@@ -1,0 +1,17 @@
+D:\Programko\UJEP\OONV\OONV-c#\cv6_adapter\bin\Debug\net6.0\cv6_adapter.exe
+D:\Programko\UJEP\OONV\OONV-c#\cv6_adapter\bin\Debug\net6.0\cv6_adapter.deps.json
+D:\Programko\UJEP\OONV\OONV-c#\cv6_adapter\bin\Debug\net6.0\cv6_adapter.runtimeconfig.json
+D:\Programko\UJEP\OONV\OONV-c#\cv6_adapter\bin\Debug\net6.0\cv6_adapter.dll
+D:\Programko\UJEP\OONV\OONV-c#\cv6_adapter\bin\Debug\net6.0\cv6_adapter.pdb
+D:\Programko\UJEP\OONV\OONV-c#\cv6_adapter\bin\Debug\net6.0\AngleSharp.dll
+D:\Programko\UJEP\OONV\OONV-c#\cv6_adapter\obj\Debug\net6.0\cv6_adapter.csproj.AssemblyReference.cache
+D:\Programko\UJEP\OONV\OONV-c#\cv6_adapter\obj\Debug\net6.0\cv6_adapter.GeneratedMSBuildEditorConfig.editorconfig
+D:\Programko\UJEP\OONV\OONV-c#\cv6_adapter\obj\Debug\net6.0\cv6_adapter.AssemblyInfoInputs.cache
+D:\Programko\UJEP\OONV\OONV-c#\cv6_adapter\obj\Debug\net6.0\cv6_adapter.AssemblyInfo.cs
+D:\Programko\UJEP\OONV\OONV-c#\cv6_adapter\obj\Debug\net6.0\cv6_adapter.csproj.CoreCompileInputs.cache
+D:\Programko\UJEP\OONV\OONV-c#\cv6_adapter\obj\Debug\net6.0\cv6_adapter.csproj.CopyComplete
+D:\Programko\UJEP\OONV\OONV-c#\cv6_adapter\obj\Debug\net6.0\cv6_adapter.dll
+D:\Programko\UJEP\OONV\OONV-c#\cv6_adapter\obj\Debug\net6.0\refint\cv6_adapter.dll
+D:\Programko\UJEP\OONV\OONV-c#\cv6_adapter\obj\Debug\net6.0\cv6_adapter.pdb
+D:\Programko\UJEP\OONV\OONV-c#\cv6_adapter\obj\Debug\net6.0\cv6_adapter.genruntimeconfig.cache
+D:\Programko\UJEP\OONV\OONV-c#\cv6_adapter\obj\Debug\net6.0\ref\cv6_adapter.dll
