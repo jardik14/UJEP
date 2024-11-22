@@ -1,0 +1,15 @@
+D:\Programko\UJEP\OONV\OONV-c#\cv7_observer\bin\Debug\net6.0\cv7_observer.exe
+D:\Programko\UJEP\OONV\OONV-c#\cv7_observer\bin\Debug\net6.0\cv7_observer.deps.json
+D:\Programko\UJEP\OONV\OONV-c#\cv7_observer\bin\Debug\net6.0\cv7_observer.runtimeconfig.json
+D:\Programko\UJEP\OONV\OONV-c#\cv7_observer\bin\Debug\net6.0\cv7_observer.dll
+D:\Programko\UJEP\OONV\OONV-c#\cv7_observer\bin\Debug\net6.0\cv7_observer.pdb
+D:\Programko\UJEP\OONV\OONV-c#\cv7_observer\obj\Debug\net6.0\cv7_observer.csproj.AssemblyReference.cache
+D:\Programko\UJEP\OONV\OONV-c#\cv7_observer\obj\Debug\net6.0\cv7_observer.GeneratedMSBuildEditorConfig.editorconfig
+D:\Programko\UJEP\OONV\OONV-c#\cv7_observer\obj\Debug\net6.0\cv7_observer.AssemblyInfoInputs.cache
+D:\Programko\UJEP\OONV\OONV-c#\cv7_observer\obj\Debug\net6.0\cv7_observer.AssemblyInfo.cs
+D:\Programko\UJEP\OONV\OONV-c#\cv7_observer\obj\Debug\net6.0\cv7_observer.csproj.CoreCompileInputs.cache
+D:\Programko\UJEP\OONV\OONV-c#\cv7_observer\obj\Debug\net6.0\cv7_observer.dll
+D:\Programko\UJEP\OONV\OONV-c#\cv7_observer\obj\Debug\net6.0\refint\cv7_observer.dll
+D:\Programko\UJEP\OONV\OONV-c#\cv7_observer\obj\Debug\net6.0\cv7_observer.pdb
+D:\Programko\UJEP\OONV\OONV-c#\cv7_observer\obj\Debug\net6.0\cv7_observer.genruntimeconfig.cache
+D:\Programko\UJEP\OONV\OONV-c#\cv7_observer\obj\Debug\net6.0\ref\cv7_observer.dll
