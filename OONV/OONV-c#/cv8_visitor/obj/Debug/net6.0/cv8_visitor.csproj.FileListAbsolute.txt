@@ -1,0 +1,15 @@
+D:\Programko\UJEP\OONV\OONV-c#\cv8_visitor\bin\Debug\net6.0\cv8_visitor.exe
+D:\Programko\UJEP\OONV\OONV-c#\cv8_visitor\bin\Debug\net6.0\cv8_visitor.deps.json
+D:\Programko\UJEP\OONV\OONV-c#\cv8_visitor\bin\Debug\net6.0\cv8_visitor.runtimeconfig.json
+D:\Programko\UJEP\OONV\OONV-c#\cv8_visitor\bin\Debug\net6.0\cv8_visitor.dll
+D:\Programko\UJEP\OONV\OONV-c#\cv8_visitor\bin\Debug\net6.0\cv8_visitor.pdb
+D:\Programko\UJEP\OONV\OONV-c#\cv8_visitor\obj\Debug\net6.0\cv8_visitor.csproj.AssemblyReference.cache
+D:\Programko\UJEP\OONV\OONV-c#\cv8_visitor\obj\Debug\net6.0\cv8_visitor.GeneratedMSBuildEditorConfig.editorconfig
+D:\Programko\UJEP\OONV\OONV-c#\cv8_visitor\obj\Debug\net6.0\cv8_visitor.AssemblyInfoInputs.cache
+D:\Programko\UJEP\OONV\OONV-c#\cv8_visitor\obj\Debug\net6.0\cv8_visitor.AssemblyInfo.cs
+D:\Programko\UJEP\OONV\OONV-c#\cv8_visitor\obj\Debug\net6.0\cv8_visitor.csproj.CoreCompileInputs.cache
+D:\Programko\UJEP\OONV\OONV-c#\cv8_visitor\obj\Debug\net6.0\cv8_visitor.dll
+D:\Programko\UJEP\OONV\OONV-c#\cv8_visitor\obj\Debug\net6.0\refint\cv8_visitor.dll
+D:\Programko\UJEP\OONV\OONV-c#\cv8_visitor\obj\Debug\net6.0\cv8_visitor.pdb
+D:\Programko\UJEP\OONV\OONV-c#\cv8_visitor\obj\Debug\net6.0\cv8_visitor.genruntimeconfig.cache
+D:\Programko\UJEP\OONV\OONV-c#\cv8_visitor\obj\Debug\net6.0\ref\cv8_visitor.dll

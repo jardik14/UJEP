@@ -1,0 +1,15 @@
+D:\Programko\UJEP\OONV\OONV-c#\Zapocet\bin\Debug\net6.0\Zapocet.exe
+D:\Programko\UJEP\OONV\OONV-c#\Zapocet\bin\Debug\net6.0\Zapocet.deps.json
+D:\Programko\UJEP\OONV\OONV-c#\Zapocet\bin\Debug\net6.0\Zapocet.runtimeconfig.json
+D:\Programko\UJEP\OONV\OONV-c#\Zapocet\bin\Debug\net6.0\Zapocet.dll
+D:\Programko\UJEP\OONV\OONV-c#\Zapocet\bin\Debug\net6.0\Zapocet.pdb
+D:\Programko\UJEP\OONV\OONV-c#\Zapocet\obj\Debug\net6.0\Zapocet.csproj.AssemblyReference.cache
+D:\Programko\UJEP\OONV\OONV-c#\Zapocet\obj\Debug\net6.0\Zapocet.GeneratedMSBuildEditorConfig.editorconfig
+D:\Programko\UJEP\OONV\OONV-c#\Zapocet\obj\Debug\net6.0\Zapocet.AssemblyInfoInputs.cache
+D:\Programko\UJEP\OONV\OONV-c#\Zapocet\obj\Debug\net6.0\Zapocet.AssemblyInfo.cs
+D:\Programko\UJEP\OONV\OONV-c#\Zapocet\obj\Debug\net6.0\Zapocet.csproj.CoreCompileInputs.cache
+D:\Programko\UJEP\OONV\OONV-c#\Zapocet\obj\Debug\net6.0\Zapocet.dll
+D:\Programko\UJEP\OONV\OONV-c#\Zapocet\obj\Debug\net6.0\refint\Zapocet.dll
+D:\Programko\UJEP\OONV\OONV-c#\Zapocet\obj\Debug\net6.0\Zapocet.pdb
+D:\Programko\UJEP\OONV\OONV-c#\Zapocet\obj\Debug\net6.0\Zapocet.genruntimeconfig.cache
+D:\Programko\UJEP\OONV\OONV-c#\Zapocet\obj\Debug\net6.0\ref\Zapocet.dll

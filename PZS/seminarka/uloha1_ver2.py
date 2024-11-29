@@ -36,6 +36,8 @@ def calculate_bpm(signal, sampling_rate=1000, samples_per_minute=60000):
     return bpm_per_minute, time_in_minutes
 
 results = []
+sampling_rate = 1000  # Hz
+
 
 # Traverse through the directory structure
 for dirpath, dirnames, filenames in os.walk(directory_path):
@@ -48,10 +50,10 @@ for dirpath, dirnames, filenames in os.walk(directory_path):
             signal = np.fromfile(file_path, dtype=np.int16)
 
             # Filter the signal
-            filtered_signal = bandpass_filter(signal, lowcut=0.5, highcut=50.0, fs=1000)
+            filtered_signal = bandpass_filter(signal, lowcut=0.5, highcut=50.0, fs=sampling_rate)
 
             # Calculate bpm
-            bpm, time = calculate_bpm(filtered_signal)
+            bpm, time = calculate_bpm(filtered_signal, sampling_rate, sampling_rate * 60)
 
             average_bpm = np.mean(bpm)
 
