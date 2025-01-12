@@ -29,5 +29,5 @@ LEFT JOIN
     Pavilion p ON e.pavilion_id = p.pavilion_id
 LEFT JOIN
     Employee m ON e.manager_id = m.employee_id
-LEFT JOIN
+INNER JOIN
     LatestContract lc ON e.employee_id = lc.employee_id AND lc.rn = 1;

@@ -31,5 +31,4 @@ WITH RECURSIVE EmployeeHierarchy AS (
     LEFT JOIN
         Employee m ON e.manager_id = m.employee_id  -- Join to get manager details
 )
-
 SELECT * FROM EmployeeHierarchy;

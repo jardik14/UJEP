@@ -12,7 +12,8 @@ CREATE TABLE Animal (
 CREATE TABLE Pavilion (
     pavilion_id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
-    est_date DATE NOT NULL
+    est_date DATE NOT NULL,
+    capacity INT
 );
 
 -- Table: Employee
@@ -83,12 +84,12 @@ CREATE TABLE EmployeeAuditLog (
 );
 
 
-INSERT INTO Pavilion (name, est_date) VALUES
-('Savannah', '2005-03-15'),
-('Rainforest', '1998-07-22'),
-('Arctic', '2010-11-30'),
-('Desert', '2000-05-10'),
-('Aquatic', '2015-06-25');
+INSERT INTO Pavilion (name, est_date, capacity) VALUES
+('Savannah', '2005-03-15', 20),
+('Rainforest', '1998-07-22',10),
+('Arctic', '2010-11-30', 5),
+('Desert', '2000-05-10', 55),
+('Aquatic', '2015-06-25', 31);
 
 -- Insert 20 random animals and assign them to a pavilion
 INSERT INTO Animal (name, age, species, pavilion_id) VALUES

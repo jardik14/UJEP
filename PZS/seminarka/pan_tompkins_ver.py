@@ -14,9 +14,9 @@ tvec = np.arange(0, n_length*T, T)
 
 
 
-def pan_tompkins(ecg_signal, sampling_rate=1000):
+def pan_tompkins_graphs(ecg_signal, sampling_rate=1000):
     plt.figure(figsize=(12, 6))
-    plt.subplot(3, 3, 1)
+    plt.subplot(3, 2, 1)
     plt.plot(ecg_signal, label="Original ECG", color='red')
     plt.title("Original ECG Signal")
     plt.xlabel("Time (s)")
@@ -79,5 +79,70 @@ def pan_tompkins(ecg_signal, sampling_rate=1000):
     plt.show()
     return integrated_signal
 
-pan_tompkins(ecg_signal, Fs)
+def pan_tompkins(ecg_signal, sampling_rate=1000):
+    # Step 1: Bandpass Filter (5-15 Hz)
+    lowcut = 5.0
+    highcut = 15.0
+    nyquist = 0.5 * sampling_rate
+    b, a = signal.butter(1, [lowcut / nyquist, highcut / nyquist], btype='band')
+    filtered_ecg = signal.filtfilt(b, a, ecg_signal)
 
+    # Step 2: Derivative (Emphasize slope information)
+    derivative = np.ediff1d(filtered_ecg)
+
+    # Step 3: Squaring (Non-linear amplification)
+    squared_signal = derivative ** 2
+
+    # Step 4: Moving Window Integration
+    window_size = int(0.150 * sampling_rate)  # 150 ms window
+    integration_window = np.ones(window_size) / window_size
+    integrated_signal = np.convolve(squared_signal, integration_window, mode='same')
+
+    # Step 5: Thresholding
+    threshold = 0.6 * np.max(integrated_signal)  # Adjustable threshold
+
+    # Step 6: R-Peak Detection
+    r_peaks, _ = signal.find_peaks(integrated_signal, height=threshold, distance=int(0.3 * sampling_rate))
+
+    return r_peaks
+
+pan_tompkins_graphs(ecg_signal, Fs)
+
+directory_path = 'brno-university-of-technology-ecg-quality-database-but-qdb-1.0.0/'
+
+# Traverse through the directory structure
+for dirpath, dirnames, filenames in os.walk(directory_path):
+    for filename in filenames:
+        if filename.endswith('ECG.dat'):  # Process only ECG.dat files
+            # Full path to the .dat file
+            file_path = os.path.join(dirpath, filename)
+
+            # Load the EKG signal
+            signal = np.fromfile(file_path, dtype=np.int16)
+
+            # Filter the signal
+
+
+            # Calculate bpm
+
+
+            average_bpm = np.mean(bpm)
+
+            print(f"Average bpm for {filename}: {average_bpm:.2f}")
+
+            results.append({
+                'filename': filename,
+                'average_bpm': average_bpm
+            })
+
+            # Plot bpm for the current file
+            plt.figure(figsize=(10, 5))
+            plt.plot(time, bpm, linestyle='-', color='r')
+            plt.title(f"Tepová frekvence (bpm) - {filename}")
+            plt.xlabel("Čas (minuty)")
+            plt.ylabel("Tepová frekvence (bpm)")
+            plt.grid(True)
+            plt.show()
+
+table = pd.DataFrame(results)
+print(table)

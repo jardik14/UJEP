@@ -64,7 +64,7 @@ hist(puls, main="histogram pulsu", xlab="Puls", ylab="Absolutni cetnosti",
     col="skyblue",border="darkblue")
   hist(puls, main="histogram pulsu", xlab="Puls", ylab="Hustota",
     col="skyblue",border="darkblue",freq=F)
-  lines(x<-seq(40,110,by=0.2),dnorm(x,mean(pulse),sd(pulse)),col=2)
+  lines(x<-seq(40,110,by=0.2),dnorm(x,mean(puls),sd(puls)),col=2)
   
 PlotQQ(puls, pch=19)
 

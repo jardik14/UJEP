@@ -29,7 +29,9 @@ def calculate_bpm(signal, sampling_rate=1000, samples_per_minute=60000):
     time_in_minutes = []
     for i in range(0, len(signal), samples_per_minute):
         minute_signal = signal[i:i + samples_per_minute]
-        peaks, _ = find_peaks(minute_signal, height=500, distance=400)
+        peak_height_threshold = 500
+        peak_distance_threshold = 400
+        peaks, _ = find_peaks(minute_signal, height=peak_height_threshold, distance=peak_distance_threshold)
         bpm = len(peaks)  # Convert to bpm
         bpm_per_minute.append(bpm)
         time_in_minutes.append(i / samples_per_minute)
@@ -64,14 +66,14 @@ for dirpath, dirnames, filenames in os.walk(directory_path):
                 'average_bpm': average_bpm
             })
 
-            # Plot bpm for the current file
-            plt.figure(figsize=(10, 5))
-            plt.plot(time, bpm, linestyle='-', color='r')
-            plt.title(f"Tepová frekvence (bpm) - {filename}")
-            plt.xlabel("Čas (minuty)")
-            plt.ylabel("Tepová frekvence (bpm)")
-            plt.grid(True)
-            plt.show()
+            # # Plot bpm for the current file
+            # plt.figure(figsize=(10, 5))
+            # plt.plot(time, bpm, linestyle='-', color='r')
+            # plt.title(f"Tepová frekvence (bpm) - {filename}")
+            # plt.xlabel("Čas (minuty)")
+            # plt.ylabel("Tepová frekvence (bpm)")
+            # plt.grid(True)
+            # plt.show()
 
 table = pd.DataFrame(results)
 print(table)

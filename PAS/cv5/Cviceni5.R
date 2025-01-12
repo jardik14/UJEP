@@ -220,7 +220,7 @@ names(Stulong)<-c("ID","vyska","vaha","syst1","syst2","chlst","vino","cukr","bmi
 
 # Ohodnotte normalitu promenne rm
 # vyska
-rm <- Stulong$rm
+rm <- Stulong$vyska
 
 # histogram - hodi se ho kreslit v "hustote"
 hist(rm,col="skyblue",border="darkblue",main="Histogram",ylab="Hustota",
@@ -256,7 +256,7 @@ qqnorm(rm,pch=19, cex=0.5);qqline(rm,distribution=qnorm,col=2,lwd=2)
 # vice moznosti (vsechna ostatni rozdeleni)
 
 # test
-shapiro.test(rm)
+shapiro.test(sample(rm,100))
 # statisticke testy obecne nefunguji pri velkem poctu pozorovani
 # nejlepe funguji na vzorku cca 100 hodnot
 

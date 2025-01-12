@@ -1,0 +1,57 @@
+---
+title: "PAS_ZPP_2025-01-08"
+output:
+  html_document:
+    #toc: yes
+    toc_depth: 3
+    toc_float:
+      collapsed: yes
+      smooth_scroll: yes
+  pdf_document: default
+  word_document: default
+date: "`r Sys.Date()`"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	echo = TRUE,
+	#echo = FALSE,
+	message = FALSE,
+	warning = FALSE
+)
+```
+
+```{r echo=FALSE, results='asis'}
+if(knitr::opts_chunk$get()$echo) cat("\n\n## Načtení knihoven\n\n")
+```
+
+```{r Nacteni knihoven}
+library(readxl)
+library(dplyr)
+library(ggplot2)
+library(DescTools)
+library(psych)
+```
+
+```{r}
+# Nastavení zdrojové složky
+setwd("C:/Users/helik/Dropbox/Vyuka/Predmety/PAS/PAS_IS/PAS_API_testy_AaL_ZS_24_25/Studenti_2025-01-08")
+```
+
+```{r}
+# Načtení dat
+cars <- read_excel("cars.xlsx")
+View(cars)
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
