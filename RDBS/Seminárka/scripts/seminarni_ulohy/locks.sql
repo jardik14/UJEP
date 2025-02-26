@@ -2,8 +2,6 @@ BEGIN;
 LOCK TABLE Animal IN SHARE MODE;
 -- Now other transactions can read but cannot modify the Animal table.
 -- You can perform your read queries here.
-select * from animal
-update animal set pavilion_id = 5 where animal_id = 3;
 COMMIT;
 
 BEGIN;

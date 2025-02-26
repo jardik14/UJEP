@@ -6,7 +6,7 @@ import pandas as pd
 
 
 ecg_signal = np.fromfile('brno-university-of-technology-ecg-quality-database-but-qdb-1.0.0/100001/100001_ECG.dat', dtype=np.int16)
-ecg_signal = ecg_signal[:5000]
+ecg_signal = ecg_signal[:50000]
 Fs = 1000  # Hz
 T = 1/Fs
 n_length = 3840
