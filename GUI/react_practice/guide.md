@@ -13,4 +13,7 @@
    npm run dev
    ```
 Program nyní bìží na adrese [http://localhost:5173](http://localhost:5173)
-![Vite React](screenshot1.png)
+![Vite React](images/screenshot1.png "sample page")
+
+### 2. Struktura projektu a úprava souborù
+![Project Structure](images/screenshot2.png "project structure")
