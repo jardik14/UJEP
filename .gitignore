@@ -170,6 +170,4 @@ cython_debug/
 *.zip
 *.csv
 *.xls
-*/ecg_test_data/*
-*/brno-university-of-technology-ecg-quality-database-but-qdb-1.0.0/*
-*/voice-icar-federico-ii-database-1.0.0/*
+
