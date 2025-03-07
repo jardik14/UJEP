@@ -1,0 +1,44 @@
+<university>
+    <students>
+        <student>
+            <firstName>Jan</firstName>
+            <lastName>Novák</lastName>
+            <studentNumber>123456</studentNumber>
+            <email>jan.novak@example.com</email>
+            <studyYear>2</studyYear>
+            <schedule>
+                <subject>Mathematics</subject>
+                <subject>Physics</subject>
+            </schedule>
+            <completedSubjects>
+                <subject>Introduction to Programming</subject>
+                <subject>Data Structures</subject>
+            </completedSubjects>
+            <additionalInfo>Member of the student council</additionalInfo>
+        </student>
+        <!-- Add more students here -->
+    </students>
+    <faculties>
+        <faculty>
+            <dean>Prof. Ing. Petr Svoboda, CSc.</dean>
+            <departments>
+                <department>
+                    <name>Department of Computer Science</name>
+                    <head>Dr. Jana Novotná</head>
+                    <employees>
+                        <employee>
+                            <name>Ing. Karel Dvořák</name>
+                            <contact>karel.dvorak@example.com</contact>
+                            <position>Assistant Professor</position>
+                            <titles>Ing.</titles>
+                        </employee>
+                        <!-- Add more employees here -->
+                    </employees>
+                </department>
+                <!-- Add more departments here -->
+            </departments>
+            <additionalInfo>Leading faculty in research and development</additionalInfo>
+        </faculty>
+        <!-- Add more faculties here -->
+    </faculties>
+</university>

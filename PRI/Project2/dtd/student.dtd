@@ -1,0 +1,10 @@
+<!-- filepath: /d:/Programko/UJEP/PRI/Project2/dtd/student.dtd -->
+<!ELEMENT university (student+)>
+<!ELEMENT student (firstName, lastName, faculty, department, email)>
+<!ATTLIST student
+    studentNumber CDATA #REQUIRED>
+<!ELEMENT firstName (#PCDATA)>
+<!ELEMENT lastName (#PCDATA)>
+<!ELEMENT faculty (#PCDATA)>
+<!ELEMENT department (#PCDATA)>
+<!ELEMENT email (#PCDATA)>

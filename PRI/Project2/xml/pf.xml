@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE fakulta SYSTEM "../dtd/fakulta.dtd">
+<fakulta děkan="Prof. Jan Novák">
+    <katedra zkratka_katedry="KPE" webové_stránky="https://www.ujep.cz/cs/kpe">
+        <vedoucí>
+            <jméno>Dr. Eva Malá</jméno>
+            <telefon>+420123456789</telefon>
+            <email>eva.mala@ujep.cz</email>
+        </vedoucí>
+        <zaměstnanci>
+            <zaměstnanec>
+                <jméno>Mgr. Petr Velký</jméno>
+                <telefon>+420987654321</telefon>
+                <email>petr.velky@ujep.cz</email>
+                <pozice><asistent/></pozice>
+            </zaměstnanec>
+        </zaměstnanci>
+        <předměty>
+            <předmět zkratka="PED101" typ="přednáška">
+                <název>Úvod do pedagogiky</název>
+                <popis>Základní principy pedagogiky</popis>
+            </předmět>
+            <předmět zkratka="PSY101" typ="seminář">
+                <název>Psychologie pro učitele</název>
+                <popis>Základy psychologie zaměřené na učitele</popis>
+            </předmět>
+        </předměty>
+    </katedra>
+</fakulta>

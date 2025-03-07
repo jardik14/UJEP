@@ -1,5 +1,9 @@
 <?
-require __DIR__ . '/inc/start.php';
+if (file_exists(__DIR__ . '/inc/start.php')) {
+    require __DIR__ . '/inc/start.php';
+} else {
+    die('Required file start.php does not exist.');
+}
 require __DIR__ . '/inc/db.php';
 
 $msg   = '';

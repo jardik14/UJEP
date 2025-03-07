@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<university>
+    <student studentNumber="123456">
+        <firstName>Jan</firstName>
+        <lastName>Novák</lastName>
+        <faculty>Informatics</faculty>
+        <department>Computer Science</department>
+        <email>jan.novak@university.cz</email>
+    </student>
+</university>

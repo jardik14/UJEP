@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE fakulta SYSTEM "../dtd/fakulta.dtd">
+<fakulta děkan="Prof. RNDr. Jan Novák, CSc.">
+    <katedra zkratka_katedry="KMA" webové_stránky="https://www.ujep.cz/cs/kma">
+        <vedoucí>
+            <jméno>Doc. RNDr. Petr Svoboda, Ph.D.</jméno>
+            <telefon>+420 123 456 789</telefon>
+            <email>petr.svoboda@ujep.cz</email>
+        </vedoucí>
+        <zaměstnanci>
+            <zaměstnanec>
+                <jméno>Mgr. Jana Novotná</jméno>
+                <telefon>+420 987 654 321</telefon>
+                <email>jana.novotna@ujep.cz</email>
+                <pozice><lektor/></pozice>
+            </zaměstnanec>
+            <zaměstnanec>
+                <jméno>Ing. Karel Dvořák</jméno>
+                <telefon>+420 456 789 123</telefon>
+                <email>karel.dvorak@ujep.cz</email>
+                <pozice><asistent/></pozice>
+            </zaměstnanec>
+        </zaměstnanci>
+        <předměty>
+            <předmět zkratka="MAT101" typ="přednáška">
+                <název>Matematická analýza I</název>
+                <popis>Základy matematické analýzy.</popis>
+            </předmět>
+            <předmět zkratka="ALG102" typ="seminář">
+                <název>Algebra</název>
+                <popis>Úvod do algebry.</popis>
+            </předmět>
+        </předměty>
+    </katedra>
+</fakulta>

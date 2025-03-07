@@ -1,0 +1,8 @@
+<!ELEMENT knihy (kniha+)>
+<!ELEMENT kniha (název+, Autor, postavy?, popis?)>
+<!ELEMENT název (#PCDATA)>
+<!ATTLIST název jazyk (cz | en) #REQUIRED>
+<!ELEMENT Autor (#PCDATA)>
+<!ELEMENT postavy (postava+)>
+<!ELEMENT postava (#PCDATA)>
+<!ELEMENT popis (#PCDATA)>

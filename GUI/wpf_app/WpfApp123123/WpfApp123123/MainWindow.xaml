@@ -1,0 +1,104 @@
+﻿<Window x:Class="WpfApp123123.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp123123"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="900"
+        Background="#121212">
+    <Grid>
+        <Grid.RowDefinitions>
+            <!-- Row for Search Bar -->
+            <RowDefinition Height="Auto"/>
+            <!-- Row for Text info (left) and Image + Sun Path (right) -->
+            <RowDefinition Height="*"/>
+            <!-- Optional Row for additional content -->
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Search Bar Section (Top Part) -->
+        <StackPanel Grid.Row="0" HorizontalAlignment="Center" Margin="0,10,0,20">
+            <TextBox Name="CityName" Width="200" Height="30" Style="{StaticResource DarkTextBox}"/>
+            <Button Name="Search" Click="Search_Click" Width="100" Height="30" Margin="0,10,0,0" Style="{StaticResource DarkButton}">Search</Button>
+        </StackPanel>
+
+        <!-- Middle Part with Left Text Info and Right Image + Sun Path -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <!-- Left Column for Text Info -->
+                <ColumnDefinition Width="Auto"/>
+                <!-- Right Column for Image and Sun Path -->
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Left Column (Old Text Fields) -->
+            <StackPanel Grid.Column="0" HorizontalAlignment="Center" Margin="10">
+                <TextBlock x:Name="CityNameTextOld" FontSize="20" FontWeight="Bold"
+               Foreground="White" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="TemperatureTextOld" FontSize="16" FontWeight="Bold"
+               Foreground="White" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="FeelsLikeTextOld" FontSize="16" FontWeight="Bold"
+               Foreground="White" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="HumidityTextOld" FontSize="16" FontWeight="Bold"
+               Foreground="White" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="CloudsTextOld" FontSize="16" FontWeight="Bold"
+               Foreground="White" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="DescriptionTextOld" FontSize="16" FontWeight="Bold"
+               Foreground="White" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="CurrentTimeTextOld" FontSize="16" FontWeight="Bold"
+               Foreground="White" HorizontalAlignment="Center"/>
+            </StackPanel>
+
+            <!-- Left Column (Text Fields) -->
+            <StackPanel Grid.Column="1" HorizontalAlignment="Center" Margin="10">
+                <TextBlock x:Name="CityNameText" FontSize="20" FontWeight="Bold"
+                           Foreground="White" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="TemperatureText" FontSize="16" FontWeight="Bold"
+                           Foreground="White" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="FeelsLikeText" FontSize="16" FontWeight="Bold"
+                           Foreground="White" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="HumidityText" FontSize="16" FontWeight="Bold"
+                           Foreground="White" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="CloudsText" FontSize="16" FontWeight="Bold"
+                           Foreground="White" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="DescriptionText" FontSize="16" FontWeight="Bold"
+                           Foreground="White" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="CurrentTimeText" FontSize="16" FontWeight="Bold"
+                           Foreground="White" HorizontalAlignment="Center"/>
+            </StackPanel>
+
+            <!-- Right Column (Image and Sun Canvas) -->
+            <StackPanel Grid.Column="2" HorizontalAlignment="Left" Margin="10">
+                <Image x:Name="WeatherIcon" Width="100" Height="100" HorizontalAlignment="Center" Margin="10"/>
+                <Canvas Name="SunCanvas" Visibility="Collapsed" Height="150">
+                    <!-- Curved Path for Sun -->
+                    <Path Name="SunStroke" Stroke="Orange" StrokeThickness="4">
+                        <Path.Data>
+                            <PathGeometry>
+                                <PathFigure StartPoint="0,120">
+                                    <ArcSegment x:Name="SunPath"
+                                                Point="300,120" 
+                                                Size="150,100" 
+                                                SweepDirection="Clockwise"
+                                                IsLargeArc="False"/>
+                                </PathFigure>
+                            </PathGeometry>
+                        </Path.Data>
+                    </Path>
+
+                    <!-- Sun Icon -->
+                    <Ellipse Name="Sun" Width="20" Height="20" Fill="Yellow"
+                             Stroke="Black" StrokeThickness="1"/>
+
+                    <!-- Sunrise & Sunset Time -->
+                    <TextBlock Name="SunriseText" Foreground="White" FontSize="14"
+                               Canvas.Left="0" Canvas.Top="130"/>
+                    <TextBlock Name="SunsetText" Foreground="White" FontSize="14"
+                               Canvas.Left="270" Canvas.Top="130"/>
+                </Canvas>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

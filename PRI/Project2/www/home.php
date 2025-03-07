@@ -17,6 +17,7 @@ usrId() || redirect('login.php');
   <header>
     <img src="assets/logo.svg" title="Logo" style="height: 100%;" class="ptr" onclick="location.href='index.php'">
     <a href="logout.php">Logout</a>
+    <a href="validator.php">Validator</a>
     <?= usr() ?>
   </header>
 
