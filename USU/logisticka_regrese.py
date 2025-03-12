@@ -30,7 +30,8 @@ class naivni_logisticka_regrese_binarni:
       Minimalizovaná funkce – Binary Cross-Entropy.
       """
       y_pred = self.sigmoida(w, self._X)
-      return -np.mean(self._y * np.log(y_pred) + (1 - self._y) * np.log(1 - y_pred))
+      epsilon = 1e-15
+      return -(self._y.T @ np.log(y_pred + epsilon) + (1 - self._y).T @ np.log(1 - y_pred + epsilon))
 
   def fit(self, X,y):
     """
@@ -45,12 +46,12 @@ class naivni_logisticka_regrese_binarni:
     # je pouzita iteracni metoda optimalizace, nahodne je zvolena nulta iterace
     w0 = np.random.randn(dimenze) # nahodny bod
     self._w=w0
-    print(f"Pocatecni hodnota krit. fce {self.kriterialni_funkce(w0)}")
-    print(f"Pocatecni hodnota vah w={w0}")
+    # print(f"Pocatecni hodnota krit. fce {self.kriterialni_funkce(w0)}")
+    # print(f"Pocatecni hodnota vah w={w0}")
     res = optimize.minimize(self.kriterialni_funkce, w0, method='BFGS', tol=1e-5)
     self._w = res.x
-    print(f"Konecna hodnota krit. fce {self.kriterialni_funkce(self._w)}")
-    print(f"Konecna hodnota vah w={self._w}")
+    # print(f"Konecna hodnota krit. fce {self.kriterialni_funkce(self._w)}")
+    # print(f"Konecna hodnota vah w={self._w}")
     return self._w
 
   def predict_proba(self, X):
@@ -97,11 +98,11 @@ model.fit(X,y) # nauceni modelu
 # Pouziti pro predikci
 bod = np.array([4,2])
 y_1_hat = model.predict(bod.reshape(1,2))
-print(f"Predikovana trida pro {bod} je {y_1_hat}")
+# print(f"Predikovana trida pro {bod} je {y_1_hat}")
 y_hat = model.predict(X)
-print("Porovnani s realitou:")
-for trida_predpoved, realita in zip(y_hat, y):
-  print(f"{trida_predpoved}-->{realita}|", end="")
+# print("Porovnani s realitou:")
+# for trida_predpoved, realita in zip(y_hat, y):
+#   print(f"{trida_predpoved}-->{realita}|", end="")
 
 # Vykresleni hladin pravděpodobnosti
 zzp = zz
@@ -110,12 +111,12 @@ for i in range(xx.shape[1]):
     zzp[j,i] = model.predict_proba(np.array([xx[j,i],yy[j,i]]).reshape(1,2))
 
 
-fig, ax =plt.subplots()
-cf=plt.contourf(xx, yy, zzp,levels=10, cmap='RdGy')
-plt.scatter(X[:,0],X[:,1], c = y) # kresli body z X
-plt.scatter(bod[0], bod[1],color='green') # kresli jeden zadany bod
-fig.colorbar(cf, ax=ax)
-ax.grid()
-plt.title("Hladiny pravděpodobnosti příslušnosti ke třídám")
-ax.legend()
-plt.show()
+# fig, ax =plt.subplots()
+# cf=plt.contourf(xx, yy, zzp,levels=10, cmap='RdGy')
+# plt.scatter(X[:,0],X[:,1], c = y) # kresli body z X
+# plt.scatter(bod[0], bod[1],color='green') # kresli jeden zadany bod
+# fig.colorbar(cf, ax=ax)
+# ax.grid()
+# plt.title("Hladiny pravděpodobnosti příslušnosti ke třídám")
+# ax.legend()
+# plt.show()
