@@ -1,0 +1,49 @@
+﻿@page "{id:Guid}"
+@model Razor_GUI.Pages.Articles.EditModel
+@{
+	var message = ViewData["Message"]?.ToString();
+}
+
+
+<form method="post">
+	<h1 class="mb-3">Edit Article</h1>
+	@if (!string.IsNullOrWhiteSpace(message))
+	{
+		<div class="alert alert-success" role="alert">
+			@message
+		</div>
+	}
+	<div class="mb-3">
+		<label class="form-label">Id</label>
+
+		<input type="text" class="form-control" asp-for="EditArticleViewModel.Id" readonly />
+	</div>
+
+	<div class="mb-3">
+		<label class="form-label">Title</label>
+
+		<input type="text" class="form-control" asp-for="EditArticleViewModel.Title" />
+	</div>
+
+	<div class="mb-3">
+		<label for="description" class="form-label">Description</label>
+		<!--Textarea is bigger input field for bigger chunk of text-->
+		<textarea id="description" class="form-control" asp-for="EditArticleViewModel.Description" rows="5"></textarea>
+
+	</div>
+
+	<div class="mb-3">
+		<label class="form-label">Created At</label>
+
+		<input type="date" class="form-control" asp-for="EditArticleViewModel.CreatedAt" readonly />
+	</div>
+
+	<div class="mb-3 d-flex justify-content-between">
+		<button type="submit" class="btn btn-primary" asp-page-handler="Edit">
+			Edit
+		</button>
+		<button type="submit" class="btn btn-danger" asp-page-handler="Delete">
+			Delete
+		</button>
+	</div>
+</form>

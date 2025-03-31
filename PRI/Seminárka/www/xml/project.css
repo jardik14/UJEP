@@ -1,0 +1,354 @@
+/* Main container styles */
+body {
+    font-family: 'Segoe UI', 'Consolas', 'Monaco', monospace;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f2f5;
+    color: #1a1a1a;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* XML content styles */
+.xml-content {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 8px;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    font-size: 14px;
+    line-height: 1.6;
+    border: 1px solid #e1e4e8;
+}
+
+/* XML syntax highlighting */
+.xml-tag {
+    color: #2ea44f;  /* Bright green for tags */
+    font-weight: 600;
+}
+
+.xml-attr {
+    color: #6f42c1;  /* Purple for attributes */
+    font-weight: 500;
+}
+
+.xml-text {
+    color: #24292e;  /* Dark gray for text content */
+}
+
+.xml-comment {
+    color: #6a737d;  /* Gray for comments */
+    font-style: italic;
+}
+
+.xml-cdata {
+    color: #e36209;  /* Orange for CDATA sections */
+    background-color: #fff5f0;
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+.xml-pi {
+    color: #005cc5;  /* Blue for processing instructions */
+    font-weight: 500;
+}
+
+/* Navigation styles */
+.nav-menu {
+    background-color: #ffffff;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    border: 1px solid #e1e4e8;
+}
+
+.nav-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-menu li {
+    margin: 0;
+}
+
+.nav-menu a {
+    color: #0366d6;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    font-weight: 500;
+}
+
+.nav-menu a:hover {
+    background-color: #f6f8fa;
+    color: #0245a3;
+    text-decoration: none;
+}
+
+/* Header styles */
+h1 {
+    color: #24292e;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #e1e4e8;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+/* Section styles */
+section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    border: 1px solid #e1e4e8;
+}
+
+section h2 {
+    color: #24292e;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+/* Feature list styles */
+.feature {
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    background-color: #f6f8fa;
+    border: 1px solid #e1e4e8;
+}
+
+.feature-name {
+    font-weight: 600;
+    color: #24292e;
+    margin-bottom: 5px;
+}
+
+.feature-description {
+    color: #6a737d;
+    margin-bottom: 5px;
+}
+
+.feature-status {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.status-implemented {
+    background-color: #e6f3ff;
+    color: #0366d6;
+}
+
+.status-in-progress {
+    background-color: #fff5f0;
+    color: #e36209;
+}
+
+/* Settings and dependencies styles */
+.setting-group, .dependency-group {
+    margin-bottom: 20px;
+}
+
+.setting-group h3, .dependency-group h3 {
+    color: #24292e;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* Contact information styles */
+.contact-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.contact-item {
+    padding: 15px;
+    background-color: #f6f8fa;
+    border-radius: 6px;
+    border: 1px solid #e1e4e8;
+}
+
+/* Error message styles */
+.error-message {
+    color: #cb2431;
+    background-color: #ffeef0;
+    padding: 15px;
+    border-radius: 6px;
+    margin: 10px 0;
+    border: 1px solid #ffd7d5;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    .container {
+        padding: 15px;
+    }
+    
+    .xml-content {
+        font-size: 12px;
+        padding: 15px;
+    }
+    
+    .nav-menu ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .contact-info {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Print styles */
+@media print {
+    body {
+        background-color: white;
+    }
+    
+    .container {
+        box-shadow: none;
+        padding: 0;
+    }
+    
+    .nav-menu {
+        display: none;
+    }
+    
+    .xml-content {
+        border: none;
+    }
+}
+
+/* Table-like display for XML elements */
+project {
+    display: table;
+    width: 100%;
+    background-color: #ffffff;
+    border: 1px solid #e1e4e8;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+project-info, features, settings, dependencies, contact {
+    display: table-row;
+    background-color: #f6f8fa;
+}
+
+project-info > *, features > *, settings > *, dependencies > *, contact > * {
+    display: table-cell;
+    padding: 12px;
+    border-bottom: 1px solid #e1e4e8;
+}
+
+/* Feature items */
+feature {
+    display: table-row;
+}
+
+feature > * {
+    display: table-cell;
+    padding: 8px 12px;
+}
+
+/* Settings and dependencies */
+setting-group, dependency-group {
+    display: table-row;
+}
+
+setting-group > *, dependency-group > * {
+    display: table-cell;
+    padding: 8px 12px;
+}
+
+/* Contact information */
+contact-info {
+    display: table-row;
+}
+
+contact-item {
+    display: table-cell;
+    padding: 8px 12px;
+}
+
+/* Status indicators */
+status::before {
+    content: 'Status: ';
+    font-weight: bold;
+}
+
+status[value="implemented"] {
+    color: #2ea44f;
+}
+
+status[value="in-progress"] {
+    color: #e36209;
+}
+
+/* Basic styling */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    margin: 20px;
+    background-color: #f0f2f5;
+}
+
+h1 {
+    color: #24292e;
+    margin-bottom: 20px;
+}
+
+/* XML tag styling */
+.xml-tag {
+    color: #2ea44f;
+    font-weight: 600;
+}
+
+.xml-attr {
+    color: #6f42c1;
+}
+
+.xml-text {
+    color: #24292e;
+}
+
+.xml-comment {
+    color: #6a737d;
+    font-style: italic;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    project, feature, setting-group, dependency-group, contact-info {
+        display: block;
+    }
+    
+    project-info > *, features > *, settings > *, dependencies > *, contact > *,
+    feature > *, setting-group > *, dependency-group > *, contact-item {
+        display: block;
+        padding: 8px;
+    }
+}

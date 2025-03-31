@@ -1,0 +1,91 @@
+﻿@using Microsoft.AspNetCore.Hosting
+@using Microsoft.Extensions.Hosting
+
+@inject IWebHostEnvironment env
+
+<div class="carousel">
+    <button class="prev" @onclick="Previous">❮</button>
+    <img src="@images[activeIndex]" class="carousel-image" />
+    <button class="next" @onclick="Next">❯</button>
+</div>
+
+@code {
+	[Parameter]
+	public string WorkFolder { get; set; } = "images/gallery";
+
+	private int activeIndex = 0;
+	private List<string> images = new List<string>();
+	private System.Timers.Timer? timer;
+
+    protected override void OnInitialized()
+    {
+        string fullPath = Path.Combine(env.WebRootPath, WorkFolder.Replace("/", Path.DirectorySeparatorChar.ToString()));
+        if (Directory.Exists(fullPath))
+        {
+            images = Directory.GetFiles(fullPath, "*.jpg").ToList();
+            images = images.Select(img => Path.Combine("/", WorkFolder, Path.GetFileName(img))).ToList();
+        }
+
+        timer = new System.Timers.Timer(3000); // každé 3 sekundy
+        timer.Elapsed += (sender, e) => InvokeAsync(Next);
+        timer.AutoReset = true;
+        timer.Start();
+    }
+
+    private void Next()
+    {
+        activeIndex = (activeIndex + 1) % images.Count;
+        timer?.Stop();
+        timer?.Start();
+        StateHasChanged(); // aktualizace UI
+    }
+
+    private void Previous()
+    {
+        activeIndex = (activeIndex - 1 + images.Count) % images.Count;
+        timer?.Stop();
+        timer?.Start();
+        StateHasChanged();
+    }
+
+    public void Dispose()
+    {
+        timer?.Dispose();
+    }
+}
+
+<style>
+    .carousel {
+        position: relative;
+        width: 800px;
+        height: 400px;
+        margin: auto;
+    }
+
+    .carousel-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    .prev,
+    .next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    .prev {
+        left: 10px;
+    }
+
+    .next {
+        right: 10px;
+    }
+</style>

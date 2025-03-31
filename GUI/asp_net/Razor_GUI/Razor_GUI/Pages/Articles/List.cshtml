@@ -1,0 +1,40 @@
+﻿@page
+@model Razor_GUI.Pages.Articles.ListModel
+@{
+}
+
+<h1 class="mb-3">List of Articles</h1>
+
+@if (Model.Articles != null && Model.Articles.Any())
+{
+	<table>
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Title</th>
+				<th>Description</th>
+				<th>CreatedAt</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var article in Model.Articles)
+			{
+				<tr>
+					<td>@article.Id</td>
+					<td>@article.Title</td>
+					<td>@article.Description</td>
+					<td>@article.CreatedAt</td>
+							<td>
+								<a href="/Articles/Edit/@article.Id" class="btn btn-sm btn-primary">Edit</a>
+							</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+}
+else
+{
+	<div class="alert alert-info" role="alert">
+		No articles found.
+	</div>
+}

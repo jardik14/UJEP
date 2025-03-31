@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="project.css"?>
+<project>
+    <display-name>School Project Web Application</display-name>
+
+    <!-- Application configuration -->
+    <context-param>
+        <param-name>appName</param-name>
+        <param-value>School Project</param-value>
+    </context-param>
+
+    <!-- Project Information -->
+    <project-info>
+        <name>School Project Web Application</name>
+        <version>1.0.0</version>
+        <author>Student Name</author>
+        <date>2024-03-21</date>
+        <description>A web application for school project demonstration</description>
+    </project-info>
+
+    <!-- Features List -->
+    <features>
+        <feature>
+            <name>User Authentication</name>
+            <description>Secure login and registration system</description>
+            <status>implemented</status>
+        </feature>
+        <feature>
+            <name>Data Management</name>
+            <description>CRUD operations for data handling</description>
+            <status>implemented</status>
+        </feature>
+        <feature>
+            <name>Responsive Design</name>
+            <description>Mobile-friendly interface</description>
+            <status>implemented</status>
+        </feature>
+        <feature>
+            <name>API Integration</name>
+            <description>External service connections</description>
+            <status>in-progress</status>
+        </feature>
+    </features>
+
+    <!-- Configuration Settings -->
+    <settings>
+        <database>
+            <type>MySQL</type>
+            <version>8.0</version>
+            <host>localhost</host>
+            <port>3306</port>
+        </database>
+        <server>
+            <type>Apache</type>
+            <version>2.4</version>
+            <port>80</port>
+        </server>
+        <security>
+            <encryption>SHA-256</encryption>
+            <session-timeout>30</session-timeout>
+            <max-login-attempts>3</max-login-attempts>
+        </security>
+    </settings>
+
+    <!-- Dependencies -->
+    <dependencies>
+        <dependency>
+            <name>PHP</name>
+            <version>8.1</version>
+            <type>runtime</type>
+        </dependency>
+        <dependency>
+            <name>MySQL</name>
+            <version>8.0</version>
+            <type>database</type>
+        </dependency>
+        <dependency>
+            <name>Bootstrap</name>
+            <version>5.3</version>
+            <type>frontend</type>
+        </dependency>
+        <dependency>
+            <name>jQuery</name>
+            <version>3.7</version>
+            <type>frontend</type>
+        </dependency>
+    </dependencies>
+
+    <!-- Contact Information -->
+    <contact>
+        <email>student@example.com</email>
+        <phone>+420 123 456 789</phone>
+        <address>
+            <street>Example Street 123</street>
+            <city>Example City</city>
+            <country>Czech Republic</country>
+        </address>
+    </contact>
+</project>
