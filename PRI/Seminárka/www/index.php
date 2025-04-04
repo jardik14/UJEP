@@ -10,6 +10,7 @@
     <li><a href="server-side.php">Server-side XSLT</a></li>
     <li><a href="client-side.php">Client-side XSLT</a></li>
     <li><a href="choose-file.php">Choose file</a></li>
+    <li><a href="client-side-better.php">Client-side XSLT with W3css and font_awesome icons</a></li>
   </ul>
 </body>
 

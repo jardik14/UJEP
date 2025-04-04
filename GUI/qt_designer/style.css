@@ -1,0 +1,68 @@
+QMainWindow{
+    background-color: #dee9ff;
+}
+
+QLabel, QComboBox, QLineEdit{
+    font-family: Verdana, sans-serif;
+    font-size: 15px;
+}
+
+#list_todo::item{
+    border: 2px solid #dbe866;
+    border-radius: 5px;
+    background-color: #ecf690;
+}
+
+#list_doing::item{
+    border: 2px solid #63c4da;
+    border-radius: 5px;
+    background-color: #ace3f0;
+}
+
+#list_done::item{
+    border: 2px solid #59d79f;
+    border-radius: 5px;
+    background-color: #81edbd;
+}
+
+QListWidget::item{
+    color: #000000;
+    padding: 2px;
+}
+
+#list_todo::item:selected{
+    background-color: #dbe866;
+}
+
+#list_doing::item:selected{
+    background-color: #63c4da;
+}
+
+#list_done::item:selected{
+    background-color: #59d79f;
+}
+
+QLineEdit {
+    border: 2px solid #88C0D0;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#list_todo, #label_todo, #p1, #d1, #t1{
+    background-color: #f7ffb0;
+    border: 2px solid  #dae674;
+    border-radius: 5px;
+}
+
+#list_doing, #label_doing, #p2, #d2, #t2{
+    background-color: #c3f4ff;
+    border: 2px solid #75cbdf;
+    border-radius: 5px;
+}
+
+#list_done, #label_done, #p3, #d3, #t3{
+    background-color: #9cffd2;
+    border: 2px solid #66cb9e;
+    border-radius: 5px;
+}
+
