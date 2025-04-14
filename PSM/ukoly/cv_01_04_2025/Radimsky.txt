@@ -1,0 +1,42 @@
+# První úloha:
+
+Apriorní pravděpodobnosti:
+H1: Zcela se nelíbí: 0.100
+H2: Nelíbí se: 0.150
+H3: Neutrální pocity: 0.500
+H4: Líbí se: 0.200
+H5: Zamilovanost: 0.050
+
+Pozorování: kontakt pohledem
+H1: Zcela se nelíbí: 0.035
+H2: Nelíbí se: 0.105
+H3: Neutrální pocity: 0.702
+H4: Líbí se: 0.140
+H5: Zamilovanost: 0.018
+
+Pozorování: úsměv
+H1: Zcela se nelíbí: 0.016
+H2: Nelíbí se: 0.049
+H3: Neutrální pocity: 0.656
+H4: Líbí se: 0.262
+H5: Zamilovanost: 0.016
+
+Pozorování: toaleta + make-up
+H1: Zcela se nelíbí: 0.006
+H2: Nelíbí se: 0.019
+H3: Neutrální pocity: 0.500
+H4: Líbí se: 0.400
+H5: Zamilovanost: 0.075
+
+Nejpravděpodobnější stav: H3: Neutrální pocity (50.00%)
+
+-------------------------------------------------------
+
+# Druhá úloha:
+
+Posteriorní pravděpodobnosti P(Prize | Guest = 0, Host = 2):
+Dveře 0: 0.333
+Dveře 1: 0.667
+Dveře 2: 0.000
+
+Doporučení: Změnit volbu na dveře 1 – pravděpodobnost výhry: 66.67%
