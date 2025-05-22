@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<games>
+    <game id="league-of-legends">
+        <name>League of Legends</name>
+        <displayName>⚔️ League of Legends</displayName>
+        <fields>
+            <field id="riot_name" type="text" label="Riot jméno" help="Zadejte vaše Riot uživatelské jméno." required="true"/>
+            <field id="riot_tag" type="text" label="Riot tag" help="Zadejte váš Riot tag (např. #EUW)." required="true"/>
+            <field id="platform_region" type="select" label="Platform region" help="Vyberte region serveru." required="true">
+                <option value="euw1">EUW1</option>
+                <option value="eun1">EUN1</option>
+                <option value="na1">NA1</option>
+            </field>
+            <field id="global_region" type="select" label="Global region" help="Vyberte globální region." required="true">
+                <option value="europe">Europe</option>
+                <option value="americas">Americas</option>
+                <option value="asia">Asia</option>
+            </field>
+        </fields>
+    </game>
+    <game id="rocket-league">
+        <name>Rocket League</name>
+        <displayName>🚗 Rocket League</displayName>
+        <fields>
+            <field id="rl_name" type="text" label="RL jméno" help="Zadejte vaše Rocket League uživatelské jméno." required="true"/>
+        </fields>
+    </game>
+    <game id="chess-com">
+        <name>Chess.com</name>
+        <displayName>♟️ Chess.com</displayName>
+        <fields>
+            <field id="chess_name" type="text" label="Chess.com uživatel" help="Zadejte vaše Chess.com uživatelské jméno." required="true"/>
+        </fields>
+    </game>
+    <game id="royale">
+        <name>Clash Royale</name>
+        <displayName>👑 Clash Royale</displayName>
+        <fields>
+            <field id="royale_tag" type="text" label="Game tag" help="#2CJYVRGPC" required="true"/>
+        </fields>
+    </game>
+    <game id="manual">
+        <name>jiná</name>
+        <displayName>🎲 Jiná (ručně)</displayName>
+        <fields>
+            <field id="rank" type="text" label="Rank" help="Zadejte váš rank ve hře." required="true"/>
+            <field id="wins" type="number" label="Výhry" help="Zadejte počet výher." required="false" min="0"/>
+            <field id="losses" type="number" label="Prohry" help="Zadejte počet proher." required="false" min="0"/>
+        </fields>
+    </game> 
+</games>
