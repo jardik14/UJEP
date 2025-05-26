@@ -369,9 +369,6 @@ ul ul {
 }
 
 /* Game-specific styles */
-.accordion-item.rocket-league {
-    border-left: 4px solid #ff6f61;
-}
 .accordion-item.league-of-legends {
     border-left: 4px solid #FFD700;
 }
