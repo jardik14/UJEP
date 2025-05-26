@@ -1,9 +1,9 @@
 <?php
 require_once 'db.php';
 require_once 'fetch_lol_stats.php';
-require_once 'fetch_rl_stats.php';
 require_once 'fetch_chess_stats.php';
 require_once 'fetch_royale_stats.php';
+require_once 'xml_utils.php';
 
 if (!isset($_SESSION["user_id"])) {
     header("Location: /login");
@@ -13,18 +13,17 @@ if (!isset($_SESSION["user_id"])) {
 $error = '';
 $success = '';
 
-// Load games from XML
-$gamesXml = simplexml_load_file(__DIR__ . '/../games.xml');
-if (!$gamesXml) {
-    $error = 'Chyba: Nepodařilo se načíst games.xml. Zkontrolujte, zda soubor existuje a je čitelný.';
-} else {
-    error_log('Games loaded: ' . count($gamesXml->game) . ' games found');
-    foreach ($gamesXml->game as $game) {
-        error_log('Game ID: ' . (string)$game['id'] . ', Name: ' . (string)$game->name);
-    }
+// Load game forms from XML
+$xmlPath = __DIR__ . '/../data/games.xml';
+$xsdPath = __DIR__ . '/../data/games.xsd';
+if (!validateXml($xmlPath, $xsdPath)) {
+    http_response_code(500);
+    exit('games.xml is not valid against games.xsd');
 }
 
-// Handle form submission (unchanged)
+$xml = simplexml_load_file($xmlPath);
+
+// Handle form submission
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['action']) && $_POST['action'] === 'add') {
     $gameName = trim($_POST["name"] ?? '');
     $userId = $_SESSION["user_id"];
@@ -49,18 +48,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['action']) && $_POST['
                     $stats["riot_tag"] = $riotTag;
                     $stats["platform_region"] = $platformRegion;
                     $stats["global_region"] = $globalRegion;
-                }
-            }
-        } elseif ($gameName === "Rocket League") {
-            $rlName = trim($_POST["rl_name"] ?? '');
-            if (empty($rlName)) {
-                $error = 'Prosím, zadejte RL jméno.';
-            } else {
-                $stats = fetchRocketLeagueStats($rlName);
-                if (!$stats) {
-                    $error = 'Chyba: RL data nebyla nalezena.';
-                } else {
-                    $stats["rl_name"] = $rlName;
                 }
             }
         } elseif ($gameName === "Chess.com") {
@@ -139,12 +126,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['action']) && $_POST['
     }
 }
 
-// Handle XML import (unchanged)
+// Handle XML import
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['action']) && $_POST['action'] === 'import') {
     if (isset($_FILES['xml_file']) && $_FILES['xml_file']['error'] === UPLOAD_ERR_OK) {
         $xmlFile = $_FILES['xml_file']['tmp_name'];
-        $xml = simplexml_load_file($xmlFile);
-        if ($xml) {
+        $xsdPath = __DIR__ . '/../data/game_stats.xsd';
+
+        libxml_use_internal_errors(true);
+        $dom = new DOMDocument();
+
+        if ($dom->load($xmlFile) && $dom->schemaValidate($xsdPath)) {
+            $xml = simplexml_load_file($xmlFile);
             try {
                 foreach ($xml->game as $game) {
                     $gameName = (string)$game->name;
@@ -159,8 +151,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['action']) && $_POST['
 
                     $isValid = true;
                     if ($gameName === "League of Legends" && (empty($stats['riot_name']) || empty($stats['riot_tag']) || empty($stats['platform_region']) || empty($stats['global_region']))) {
-                        $isValid = false;
-                    } elseif ($gameName === "Rocket League" && empty($stats['rl_name'])) {
                         $isValid = false;
                     } elseif ($gameName === "Chess.com" && empty($stats['chess_name'])) {
                         $isValid = false;
@@ -193,12 +183,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['action']) && $_POST['
                 $error = 'Chyba při importu statistik: ' . htmlspecialchars($e->getMessage());
             }
         } else {
-            $error = 'Chyba: Neplatný XML soubor.';
+            $error = 'Chyba: XML soubor není validní podle schématu game_stats.xsd.';
+            foreach (libxml_get_errors() as $err) {
+                $error .= '<br>' . htmlspecialchars($err->message);
+            }
         }
+        libxml_clear_errors();
     } else {
         $error = 'Prosím, nahrajte platný XML soubor.';
     }
 }
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -213,9 +210,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['action']) && $_POST['
         // Define toggleFields globally
         function toggleFields() {
             const fields = [
-                <?php if ($gamesXml && $gamesXml->game): ?>
+                <?php if ($xml && $xml->game): ?>
                     <?php $first = true; ?>
-                    <?php foreach ($gamesXml->game as $game): ?>
+                    <?php foreach ($xml->game as $game): ?>
                         <?php if (!$first) echo ','; ?>
                         '<?= htmlspecialchars((string)$game['id']) ?>-fields'
                         <?php $first = false; ?>
@@ -224,9 +221,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['action']) && $_POST['
             ];
 
             const gameToFields = {
-                <?php if ($gamesXml && $gamesXml->game): ?>
+                <?php if ($xml && $xml->game): ?>
                     <?php $first = true; ?>
-                    <?php foreach ($gamesXml->game as $game): ?>
+                    <?php foreach ($xml->game as $game): ?>
                         <?php if (!$first) echo ','; ?>
                         '<?= htmlspecialchars((string)$game->name) ?>': '<?= htmlspecialchars((string)$game['id']) ?>-fields'
                         <?php $first = false; ?>
@@ -291,8 +288,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['action']) && $_POST['
                     <label for="game-select">Název hry:</label>
                     <select name="name" id="game-select" onchange="toggleFields()" required aria-describedby="game-select-help">
                         <option value="" disabled selected>Vyberte hru</option>
-                        <?php if ($gamesXml && $gamesXml->game): ?>
-                            <?php foreach ($gamesXml->game as $game): ?>
+                        <?php if ($xml && $xml->game): ?>
+                            <?php foreach ($xml->game as $game): ?>
                                 <option value="<?= htmlspecialchars((string)$game->name) ?>">
                                     <?= htmlspecialchars((string)$game->displayName) ?>
                                 </option>
@@ -304,8 +301,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['action']) && $_POST['
                     <small id="game-select-help" class="form-help">Vyberte hru, pro kterou chcete přidat statistiky.</small>
                 </div>
 
-                <?php if ($gamesXml && $gamesXml->game): ?>
-                    <?php foreach ($gamesXml->game as $game): ?>
+                <?php if ($xml && $xml->game): ?>
+                    <?php foreach ($xml->game as $game): ?>
                         <div id="<?= htmlspecialchars((string)$game['id']) ?>-fields" class="form-group game-fields" style="display:none;">
                             <?php if ($game->fields->field): ?>
                                 <?php foreach ($game->fields->field as $field): ?>

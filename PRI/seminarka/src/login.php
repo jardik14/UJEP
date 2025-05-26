@@ -58,7 +58,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             </div>
             <div class="form-actions">
                 <button type="submit" class="btn">Přihlásit se</button>
-                <a href="/register" class="btn secondary">Registrovat se</a>
+            </div>
+            <div class="form-footer">
+                <p>Ještě nemáte účet? <a href="/register">Zaregistrujte se zde</a></p>
             </div>
         </form>
     </div>

@@ -12,6 +12,14 @@
     --border-radius: 8px;
 }
 
+/* Fix box model overflow issues */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
 /* Dark mode */
 @media (prefers-color-scheme: dark) {
     :root {
@@ -176,6 +184,8 @@ ul ul {
     box-shadow: var(--shadow);
     max-width: 500px;
     margin: 0 auto 2rem;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 .form-group {
@@ -221,6 +231,24 @@ ul ul {
     justify-content: center;
     margin-top: 1.5rem;
 }
+
+.form-footer {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.95rem;
+    color: var(--text);
+}
+
+.form-footer a {
+    color: var(--primary);
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+.form-footer a:hover {
+    color: var(--primary-dark);
+}
+
 
 /* Alert styles */
 .alert {

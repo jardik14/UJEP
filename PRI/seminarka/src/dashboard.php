@@ -1,7 +1,6 @@
 <?php
 require_once 'db.php';
 require_once 'fetch_lol_stats.php';
-require_once 'fetch_rl_stats.php';
 require_once 'fetch_chess_stats.php';
 require_once 'fetch_royale_stats.php';
 
@@ -14,7 +13,7 @@ $userId = $_SESSION["user_id"];
 $error = '';
 $success = $_GET['success'] ?? '';
 
-// Handle game deletion (unchanged)
+// Handle game deletion
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['action']) && $_POST['action'] === 'delete') {
     $gameId = $_POST['game_id'] ?? 0;
     try {
@@ -30,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['action']) && $_POST['
     }
 }
 
-// Handle stats update (unchanged)
+// Handle stats update
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['action']) && $_POST['action'] === 'update') {
     try {
         $stmt = $pdo->prepare("SELECT * FROM games WHERE user_id = :user_id");
@@ -64,14 +63,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['action']) && $_POST['
                         $stats["riot_tag"] = $riotTag;
                         $stats["platform_region"] = $platformRegion;
                         $stats["global_region"] = $globalRegion;
-                    }
-                }
-            } elseif ($gameName === "Rocket League") {
-                $rlName = $statMap['rl_name'] ?? '';
-                if ($rlName) {
-                    $stats = fetchRocketLeagueStats($rlName);
-                    if ($stats) {
-                        $stats["rl_name"] = $rlName;
                     }
                 }
             } elseif ($gameName === "Chess.com") {
@@ -120,7 +111,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['action']) && $_POST['
     }
 }
 
-// Handle stats export (unchanged)
+// Handle stats export
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['action']) && $_POST['action'] === 'export') {
     try {
         $stmt = $pdo->prepare("SELECT * FROM games WHERE user_id = :user_id");
@@ -158,7 +149,6 @@ $games = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 // Game icons
 $gameIcons = [
-    'Rocket League' => '🚗⚽',
     'League of Legends' => '⚔️',
     'Chess.com' => '♟️',
     'Clash Royale' => '👑',
@@ -235,22 +225,7 @@ $gameIcons = [
                                 ? $value
                                 : $stat["stat_value"];
                         }
-                        ?>
-                        <?php if ($game["name"] === "Rocket League" && isset($statMap["ranks"])): ?>
-                            <ul>
-                                <?php foreach ($statMap["ranks"] as $entry): ?>
-                                    <li>
-                                        <strong><?= htmlspecialchars($entry["playlist"]) ?>:</strong>
-                                        <span class="badge"><?= htmlspecialchars($entry["rank"]) ?></span>
-                                        (MMR: <?= htmlspecialchars($entry["mmr"]) ?>, Div: <?= htmlspecialchars($entry["division"]) ?>)
-                                    </li>
-                                <?php endforeach; ?>
-                            </ul>
-                            <?php if (isset($statMap["reward"])): ?>
-                                <p><strong>Odměna:</strong> <?= htmlspecialchars($statMap["reward"]["level"]) ?>
-                                    (<?= htmlspecialchars($statMap["reward"]["progress"]) ?>%)</p>
-                            <?php endif; ?>
-                        <?php else: ?>
+                        ?>        
                             <ul>
                                 <?php foreach ($statMap as $key => $value): ?>
                                     <li>
@@ -269,7 +244,6 @@ $gameIcons = [
                                     </li>
                                 <?php endforeach; ?>
                             </ul>
-                        <?php endif; ?>
                         <div class="game-actions">
                             <form method="POST" onsubmit="return confirm('Opravdu chcete odstranit tuto hru?');">
                                 <input type="hidden" name="action" value="delete">

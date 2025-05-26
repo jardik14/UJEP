@@ -18,13 +18,6 @@
             </field>
         </fields>
     </game>
-    <game id="rocket-league">
-        <name>Rocket League</name>
-        <displayName>🚗 Rocket League</displayName>
-        <fields>
-            <field id="rl_name" type="text" label="RL jméno" help="Zadejte vaše Rocket League uživatelské jméno." required="true"/>
-        </fields>
-    </game>
     <game id="chess-com">
         <name>Chess.com</name>
         <displayName>♟️ Chess.com</displayName>
@@ -43,6 +36,7 @@
         <name>jiná</name>
         <displayName>🎲 Jiná (ručně)</displayName>
         <fields>
+            <field id="name" type="text" label="Název hry" help="Zadejte název hry." required="true"/>
             <field id="rank" type="text" label="Rank" help="Zadejte váš rank ve hře." required="true"/>
             <field id="wins" type="number" label="Výhry" help="Zadejte počet výher." required="false" min="0"/>
             <field id="losses" type="number" label="Prohry" help="Zadejte počet proher." required="false" min="0"/>
