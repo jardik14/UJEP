@@ -1,0 +1,143 @@
+---
+title: "Seminárka_PSM_report"
+author: "Radimský Jaroslav"
+date: "2025-06-17"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  warning = FALSE,
+  message = FALSE
+)
+# Načtení potřebných knihoven
+library(ggplot2)
+library(broom)
+library(corrplot)
+
+# 1) Příprava dat
+# Nahraďte cestu k datům podle Vaší lokální složky
+load("SatData.RData")     # objekt 'satisfaction'
+df <- as.data.frame(satisfaction)
+
+# Ošetření duplicitního sloupce 'quality'
+quality_pos <- which(names(df) == "quality")
+if(length(quality_pos) >= 2) {
+  names(df)[quality_pos[1]] <- "expe_quality"
+  names(df)[quality_pos[2]] <- "val_quality"
+}
+
+# Výpočet kompozitních skóre
+df$IMAG <- rowMeans(df[, c("reputation","trustworthiness","seriousness","solidness","care")], na.rm=TRUE)
+df$EXPE <- rowMeans(df[, c("exp_products","exp_services","service","solutions","expe_quality")], na.rm=TRUE)
+df$QUAL <- rowMeans(df[, c("qual_products","qual_services","range_products","qual_personal","qual_overall")], na.rm=TRUE)
+df$VAL  <- rowMeans(df[, c("benefits","investments","val_quality","price")], na.rm=TRUE)
+df$SAT  <- rowMeans(df[, c("satisfaction","expectations","comparison","performance")], na.rm=TRUE)
+df$LOY  <- rowMeans(df[, c("return","switch","recommendation","loyalty")], na.rm=TRUE)
+
+# Model SAT
+model_sat <- lm(SAT ~ IMAG + EXPE + QUAL + VAL + LOY, data=df)
+# Model odchod (churn)
+df$odchod <- ifelse(df$switch > 5, 1, 0)
+model_odchod <- glm(odchod ~ IMAG + EXPE + QUAL + VAL + SAT, data=df, family=binomial)
+# Odds ratios
+or_df <- exp(cbind(OR = coef(model_odchod), confint(model_odchod)))
+# LDA segmentace
+library(MASS)
+med_SAT <- median(df$SAT, na.rm=TRUE)
+med_LOY <- median(df$LOY, na.rm=TRUE)
+df$segment <- with(df, factor(
+  ifelse(odchod == 1, 
+         "leave",                             
+         ifelse(SAT >  med_SAT & odchod == 0, 
+                "stay_sat",                    
+                "stay_unsat"))                       
+))
+pred_lda <- predict(lda(segment ~ reputation + exp_services + qual_overall + price + performance, data=df))
+accuracy <- mean(pred_lda$class == df$segment)
+# K-means shluky
+clust_data <- scale(df[, c("IMAG","EXPE","QUAL","VAL","SAT","LOY")])
+km <- kmeans(clust_data, centers=2, nstart=25)
+df$cluster <- factor(km$cluster)
+cluster_profile <- aggregate(df[, c("IMAG","EXPE","QUAL","VAL","SAT","LOY")], by=list(cluster=df$cluster), mean)
+# Korelace
+M <- cor(df[, c("IMAG","EXPE","QUAL","VAL","SAT","LOY")], use="pairwise.complete.obs")
+```
+
+# 1. Data a charakteristiky
+
+* Respondentů: **`r nrow(df)`**
+* Průměrná skóre (1–10): IMAG **`r round(mean(df$IMAG),2)`**, EXPE **`r round(mean(df$EXPE),2)`**, QUAL **`r round(mean(df$QUAL),2)`**, VAL **`r round(mean(df$VAL),2)`**, SAT **`r round(mean(df$SAT),2)`**, LOY **`r round(mean(df$LOY),2)`**
+
+# 2. Spokojenost (SAT)
+
+Lineární regrese identifikovala klíčové faktory:
+
+* VAL: koeficient **`r round(coef(model_sat)['VAL'],2)`**
+* IMAG: **`r round(coef(model_sat)['IMAG'],2)`**, LOY: **`r round(coef(model_sat)['LOY'],2)`**
+
+```{r reg-sat, fig.cap="Regresní koeficienty pro SAT"}
+coef_df <- broom::tidy(model_sat)
+coef_df <- coef_df[coef_df$term != '(Intercept)',]
+ggplot(coef_df, aes(x=reorder(term, estimate), y=estimate)) +
+  geom_col() + coord_flip() + theme_minimal() +
+  labs(x="Prediktor", y="Koeficient")
+```
+
+# 3. Riziko odchodu klienta
+
+Logistická regrese (odchod: switch>5) ukázala trend u IMAG:
+
+* OR **`r round(or_df['IMAG','OR'],2)`** (95% CI: `r paste0(round(or_df['IMAG','2.5 %'],2),"–",round(or_df['IMAG','97.5 %'],2))`)
+
+```{r reg-churn, fig.cap="Poměry šancí pro odchod klienta"}
+coef_o <- broom::tidy(model_odchod)
+coef_o <- coef_o[coef_o$term != '(Intercept)',]
+coef_o$OR <- exp(coef_o$estimate)
+coef_o$lower <- exp(coef_o$estimate - 1.96*coef_o$std.error)
+coef_o$upper <- exp(coef_o$estimate + 1.96*coef_o$std.error)
+ggplot(coef_o, aes(x=reorder(term, OR), y=OR)) +
+  geom_point() + geom_errorbar(aes(ymin=lower,ymax=upper), width=0.2) +
+  coord_flip() + theme_minimal() +
+  labs(x="Prediktor", y="OR (95% CI)")
+```
+
+# 4. Segmentace LDA
+* Rozdělení klientů do tři skupin (odcházející klient, spokojený zůstávající klient a nespokojený zůstávající klient) na základě 5 vybraných otázek
+
+* Celková přesnost: **`r round(100*accuracy,1)`%**
+
+# 5. Shluková analýza
+
+* 2 shluky (určeno pomocí "Elbow" metody):
+
+```{r cluster-profile, echo=FALSE}
+cluster_profile
+```
+
+# 6. Korelace kompozitních skóre
+
+```{r corr-plot, fig.cap="Korelace kompozitních skóre"}
+corrplot(M, method="color", addCoef.col="black", number.cex=0.7, tl.cex=0.8)
+```
+
+# 7. Doporučení a kroky pro prezidenta banky
+
+1. **Zacílení cenové politiky a budování reputace (VAL, IMAG)**
+
+   * *Akce*: Prezident by měl iniciovat revizi cenových balíčků a komunikovat jejich výhody ve zvolených kanálech (e-mail, sociální sítě). Doporučuji založit tým, který bude sledovat zpětnou vazbu a upravovat nabídku.
+2. **Monitorovat klienty s nízkým VAL skóre kvůli riziku odchodu**
+
+   * *Akce*: Zřídit pravidelné reporty (např. měsíčně) pro top management, kde budou sledována změny skóre prospěchu (VAL) u klíčových klientů. Prezident může svolávat kvartální schůzky, aby byl informován o vývojích.
+3. **Využít segmenty (ambasadoři vs. ohrožení) pro cílené programy**
+
+   * *Akce*: Spustit pilotní program odměn pro ambasadory (vysoké SAT, LOY), např. exkluzivní produkty či slevy. Současně vytvořit retenční balíčky pro ohrožené klienty s nízkým VAL a SAT.
+4. **Pravidelná korelační kontrola pro optimalizaci dotazníku**
+
+   * *Akce*: Prezident by měl nařídit interní revizi dotazníku každých 6 měsíců, aby se zaměřil pouze na nejvíce provázané a vlivné proměnné, čímž zkrátí délku a zlepší návratnost.
+
+---
+
+**Výsledkem těchto kroků** bude efektivnější alokace marketingových zdrojů, snížení rizika odchodu a posílení dlouhodobé loajality klientů.
+
